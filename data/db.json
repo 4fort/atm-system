@@ -1,0 +1,20 @@
+{
+    "adminPanel": {
+        "usn": "admin",
+        "password": "admin123"
+    },
+    "userCredentials": [
+        {
+            "id": 1,
+            "usn": "fort",
+            "email": "fort@email.com",
+            "password": "fort123"
+        },
+        {
+            "id": 2,
+            "usn": "dexter",
+            "email": "dexter@email.com",
+            "password": "dexter123"
+        }
+    ]
+}
