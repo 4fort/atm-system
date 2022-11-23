@@ -12,13 +12,30 @@
     hello admin
     <button type="submit" id="logout">Logout</button>
 
-    <div id="accounts"></div>
+    <div class="dbTable">
+        <div class="account_detailInfoCate">
+            <div class="account_container">
+                <div class="account_name">Account Name</div>
+                <div class="account_card">
+                    <span>Card Number</span>
+                    <span>Card Pin</span>
+                </div>
+                <div>
+                    <span>Balance</span>
+                </div>
+                <div class="account_actionButtons">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="accounts"></div>
+    </div>
     
     <div class="control_panel">
         <form action="" id="control_panel_form">
             <div class="left_box">
                 <input type="text" id="control_panel_owner" placeholder="Name...">
-            <input type="number" id="control_panel_deposit" placeholder="Deposit...">
+            <input type="number" id="control_panel_amount" placeholder="Deposit...">
             </div>
 
             <div class="right_box">

@@ -3,16 +3,26 @@
     margin: 0;
 }
 
-#accounts {
+.dbTable {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+
+    .account_detailInfoCate, #accounts {
+        width: 90%;
+    }
+    .account_detailInfoCate {
+        .account_container {
+            background: gray!important;
+        }
+    }
 
     .account_container {
         display: flex;
-        width: 90%;
         height: 3rem;
+        // width: 100%;
         justify-content: space-between;
         align-items: center;
         padding: 5px;

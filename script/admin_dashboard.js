@@ -17,10 +17,10 @@ const admin_displayAccountsList = async () => {
                     <span>${e.card.pin}</span>
                 </div>
                 <div>
-                    <span>${e.bank.balance}</span>
+                    <span>₱ ${e.bank.balance}</span>
                 </div>
                 <div class="account_actionButtons">
-                    <i class="bi bi-pencil-square account_edit"></i>
+                    <i class="bi bi-pencil-square" onclick="admin_editAccount(this)"></i>
                     <i class="bi bi-trash-fill" onclick="admin_deleteAccount(this)"></i>
                 </div>
             </div>
@@ -42,26 +42,41 @@ else {
 
 let control_panel_form = document.getElementById('control_panel_form');
 let control_panel_owner = document.getElementById('control_panel_owner');
-let control_panel_deposit = document.getElementById('control_panel_deposit');
+let control_panel_amount = document.getElementById('control_panel_amount');
 let random_card_num_element = document.getElementById('control_panel_randomCardNum')
 let control_panel_pin = document.getElementById('control_panel_pin');
 
 
-let random_card_num = '456 - ' + Math.floor(Math.random() * (999 - 100 + 1) + 100)
-console.log(random_card_num)
+let random_card_num
+const card_numGenerator = async () => {
+    const res = await fetch(`${api}userAccounts/`);
+    const data = await res.json();
 
-random_card_num_element.innerText = random_card_num;
+    random_card_num = '4567 - ' + Math.floor(Math.random() * (999 - 100 + 1) + 100) + (data.length + 1)
+    console.log(random_card_num)
+    
+    random_card_num_element.innerText = random_card_num;
+
+}
+card_numGenerator()
+
 
 control_panel_form.addEventListener('submit', (e) => {
     e.preventDefault();
     if(validate_inputs()) {
-        admin_addAccount(control_panel_owner.value, control_panel_deposit.value, control_panel_pin.value)
+        admin_addAccount(control_panel_owner.value, control_panel_amount.value, control_panel_pin.value)
+
+        isEdit = false
+        console.log(isEdit)
     }
 })
 
-const admin_addAccount = async (owner, deposit, pin) => {
-    const res = await fetch(`${api}userAccounts`, {
-        method: 'POST',
+let isEdit = false;
+let selectedElement;
+
+const admin_addAccount = async (owner, amount, pin) => {
+    const res = await fetch(`${api}userAccounts/${isEdit ? selectedElement : ''}`, {
+        method: isEdit ? 'PATCH' : 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -72,9 +87,9 @@ const admin_addAccount = async (owner, deposit, pin) => {
                 pin: pin
             },
             bank: {
-                balance: deposit,
+                balance: amount,
                 history: {
-                    deposit: [{}],
+                    amount: [{}],
                     withdraw: [{}],
                     transaction: [{}]
                 }
@@ -87,26 +102,43 @@ const admin_addAccount = async (owner, deposit, pin) => {
 let account_deleteButton = ''
 
 const admin_deleteAccount = async (e) => {
-    const res = await fetch(`${api}userAccounts${e.parentElement.parentElement.id}`, {
+    const res = await fetch(`${api}userAccounts/${e.parentElement.parentElement.id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: {}
+        body: JSON.stringify({})
     });
     const data = await res.json();
     console.log(e.parentElement.parentElement.id)
 }
 
+const admin_editAccount = async (e) => {
+    isEdit = true;
+    selectedElement = e.parentElement.parentElement.id
+    
+
+    const res = await fetch(`${api}userAccounts/${e.parentElement.parentElement.id}`);
+    const data = await res.json();
+
+    control_panel_owner.value = data.card.owner
+    control_panel_amount.value = data.bank.balance
+    random_card_num = data.card.num
+    control_panel_pin.value = data.card.pin
+
+    random_card_num_element.innerText = random_card_num
+}
+
+
 const validate_inputs = () => {
-    if(control_panel_owner.value != '' && control_panel_deposit.value != '' && control_panel_pin.value != ''){
+    if(control_panel_owner.value != '' && control_panel_amount.value != '' && control_panel_pin.value != ''){
         return true;
     }
     else if(control_panel_owner.value === '') {
         error_message.innerText = 'Please input name';
         return false;
     }
-    else if(control_panel_deposit.value === '') {
+    else if(control_panel_amount.value === '') {
         error_message.innerText = 'Please input amount'
         return false;
     }

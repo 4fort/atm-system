@@ -56,66 +56,59 @@
       }
     },
     {
-      "id": 2,
       "card": {
-        "owner": "Fort",
-        "num": "123-123-123-123",
-        "pin": "4321"
+        "owner": "FORT",
+        "num": "456 - 420",
+        "pin": "1958"
       },
       "bank": {
-        "balance": 5000,
+        "balance": "99999",
         "history": {
-          "deposit": [
-            {
-              "id": 1,
-              "amount": 100,
-              "date": "13-12-2022"
-            },
-            {
-              "id": 2,
-              "amount": 100,
-              "date": "19-12-2022"
-            }
+          "amount": [
+            {}
           ],
           "withdraw": [
-            {
-              "id": 1,
-              "amount": 500,
-              "date": "13-12-2022"
-            },
-            {
-              "id": 2,
-              "amount": 500,
-              "date": "19-12-2022"
-            }
+            {}
           ],
           "transaction": [
-            {
-              "id": 1,
-              "title": "iPhone 69 Pro Max",
-              "amount": 100,
-              "date": "23-11-2022"
-            },
-            {
-              "id": 2,
-              "title": "Laptop",
-              "amount": 400,
-              "date": "23-11-2022"
-            }
+            {}
           ]
         }
-      }
+      },
+      "id": 9
+    },
+    {
+      "card": {
+        "owner": "Dexter Fort Banaag Silva",
+        "num": "456 - 724",
+        "pin": "1234"
+      },
+      "bank": {
+        "balance": "500",
+        "history": {
+          "deposit": [
+            {}
+          ],
+          "withdraw": [
+            {}
+          ],
+          "transaction": [
+            {}
+          ]
+        }
+      },
+      "id": 10
     },
     {
       "card": {
         "owner": "test",
-        "num": "456 - 384",
-        "pin": "1234"
+        "num": "4567 - 6014",
+        "pin": "1432"
       },
       "bank": {
-        "balance": "5000",
+        "balance": "1000",
         "history": {
-          "deposit": [
+          "amount": [
             {}
           ],
           "withdraw": [
@@ -126,117 +119,7 @@
           ]
         }
       },
-      "id": 3
-    },
-    {
-      "card": {
-        "owner": "Juan Dela Cruz",
-        "num": "456 - 170",
-        "pin": "1234"
-      },
-      "bank": {
-        "balance": "5000",
-        "history": {
-          "deposit": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
-      },
-      "id": 4
-    },
-    {
-      "card": {
-        "owner": "",
-        "num": "456 - 291",
-        "pin": "1234"
-      },
-      "bank": {
-        "balance": "",
-        "history": {
-          "deposit": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
-      },
-      "id": 5
-    },
-    {
-      "card": {
-        "owner": "",
-        "num": "456 - 389",
-        "pin": "1234"
-      },
-      "bank": {
-        "balance": "",
-        "history": {
-          "deposit": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
-      },
-      "id": 6
-    },
-    {
-      "card": {
-        "owner": "Fort banaag",
-        "num": "456 - 978",
-        "pin": "1234"
-      },
-      "bank": {
-        "balance": "100",
-        "history": {
-          "deposit": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
-      },
-      "id": 7
-    },
-    {
-      "card": {
-        "owner": "test123",
-        "num": "456 - 475",
-        "pin": "1234"
-      },
-      "bank": {
-        "balance": "123",
-        "history": {
-          "deposit": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
-      },
-      "id": 8
+      "id": 11
     }
   ]
 }

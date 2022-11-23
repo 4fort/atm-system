@@ -3,35 +3,41 @@
   margin: 0;
 }
 
-#accounts {
+.dbTable {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
-#accounts .account_container {
-  display: flex;
+.dbTable .account_detailInfoCate, .dbTable #accounts {
   width: 90%;
+}
+.dbTable .account_detailInfoCate .account_container {
+  background: gray !important;
+}
+.dbTable .account_container {
+  display: flex;
   height: 3rem;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
 }
-#accounts .account_container div {
+.dbTable .account_container div {
   width: 120px;
 }
-#accounts .account_container .account_card {
+.dbTable .account_container .account_card {
   display: flex;
   flex-direction: column;
 }
-#accounts .account_container .account_actionButtons {
+.dbTable .account_container .account_actionButtons {
   width: 60px;
 }
-#accounts .account_container .account_actionButtons i {
+.dbTable .account_container .account_actionButtons i {
   padding-left: 5px;
   cursor: pointer;
 }
-#accounts .account_container:nth-child(odd) {
+.dbTable .account_container:nth-child(odd) {
   background: #efefef;
 }
 
