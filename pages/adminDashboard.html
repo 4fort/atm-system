@@ -13,7 +13,22 @@
     <button type="submit" id="logout">Logout</button>
 
     <div id="accounts"></div>
+    
+    <div class="control_panel">
+        <form action="" id="control_panel_form">
+            <div class="left_box">
+                <input type="text" id="control_panel_owner" placeholder="Name...">
+            <input type="number" id="control_panel_deposit" placeholder="Deposit...">
+            </div>
 
+            <div class="right_box">
+                <span id="control_panel_randomCardNum"></span>
+                <input type="number" id="control_panel_pin" value="1234">
+            </div>
+            
+            <button type="submit">add</button>
+        </form>
+    </div>
 
     <script src="../script/authenticator.js"></script>
     <script src="../script/admin_dashboard.js"></script>

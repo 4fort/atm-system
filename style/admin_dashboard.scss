@@ -16,9 +16,13 @@
         justify-content: space-between;
         align-items: center;
         padding: 5px;
+
+        div {
+            width: 120px;
+        }
     
         .account_name {
-    
+
         }
     
         .account_card {
@@ -28,6 +32,27 @@
     
         &:nth-child(odd) {
             background: #efefef;
+        }
+    }
+}
+
+.control_panel {
+    position: fixed;
+    bottom: 0;
+    height: 300px;
+    width: 100%;
+    background: #efefef;
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
+        width: 100%;
+
+        .left_box, .right_box {
+            display: flex;
+            flex-direction: column;
         }
     }
 }

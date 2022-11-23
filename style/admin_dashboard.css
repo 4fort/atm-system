@@ -17,10 +17,32 @@
   align-items: center;
   padding: 5px;
 }
+#accounts .account_container div {
+  width: 120px;
+}
 #accounts .account_container .account_card {
   display: flex;
   flex-direction: column;
 }
 #accounts .account_container:nth-child(odd) {
   background: #efefef;
+}
+
+.control_panel {
+  position: fixed;
+  bottom: 0;
+  height: 300px;
+  width: 100%;
+  background: #efefef;
+}
+.control_panel form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+}
+.control_panel form .left_box, .control_panel form .right_box {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=admin_dashboard.css.map */

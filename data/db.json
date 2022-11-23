@@ -14,44 +14,44 @@
       "bank": {
         "balance": 5000,
         "history": {
-            "deposit": [
-              {
-                "id": 1,
-                "amount": 100,
-                "date": "13-12-2022"
-              },
-              {
-                "id": 2,
-                "amount": 100,
-                "date": "19-12-2022"
-              }
-            ],
-            "withdraw": [
-              {
-                "id": 1,
-                "amount": 500,
-                "date": "13-12-2022"
-              },
-              {
-                "id": 2,
-                "amount": 500,
-                "date": "19-12-2022"
-              }
-            ],
-            "transaction": [
-              {
-                "id": 1,
-                "title": "iPhone 69 Pro Max",
-                "amount": 100,
-                "date": "23-11-2022"
-              },
-              {
-                "id": 2,
-                "title": "Laptop",
-                "amount": 400,
-                "date": "23-11-2022"
-              }
-            ]
+          "deposit": [
+            {
+              "id": 1,
+              "amount": 100,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 100,
+              "date": "19-12-2022"
+            }
+          ],
+          "withdraw": [
+            {
+              "id": 1,
+              "amount": 500,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 500,
+              "date": "19-12-2022"
+            }
+          ],
+          "transaction": [
+            {
+              "id": 1,
+              "title": "iPhone 69 Pro Max",
+              "amount": 100,
+              "date": "23-11-2022"
+            },
+            {
+              "id": 2,
+              "title": "Laptop",
+              "amount": 400,
+              "date": "23-11-2022"
+            }
+          ]
         }
       }
     },
@@ -65,97 +65,141 @@
       "bank": {
         "balance": 5000,
         "history": {
-            "deposit": [
-              {
-                "id": 1,
-                "amount": 100,
-                "date": "13-12-2022"
-              },
-              {
-                "id": 2,
-                "amount": 100,
-                "date": "19-12-2022"
-              }
-            ],
-            "withdraw": [
-              {
-                "id": 1,
-                "amount": 500,
-                "date": "13-12-2022"
-              },
-              {
-                "id": 2,
-                "amount": 500,
-                "date": "19-12-2022"
-              }
-            ],
-            "transaction": [
-              {
-                "id": 1,
-                "title": "iPhone 69 Pro Max",
-                "amount": 100,
-                "date": "23-11-2022"
-              },
-              {
-                "id": 2,
-                "title": "Laptop",
-                "amount": 400,
-                "date": "23-11-2022"
-              }
-            ]
+          "deposit": [
+            {
+              "id": 1,
+              "amount": 100,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 100,
+              "date": "19-12-2022"
+            }
+          ],
+          "withdraw": [
+            {
+              "id": 1,
+              "amount": 500,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 500,
+              "date": "19-12-2022"
+            }
+          ],
+          "transaction": [
+            {
+              "id": 1,
+              "title": "iPhone 69 Pro Max",
+              "amount": 100,
+              "date": "23-11-2022"
+            },
+            {
+              "id": 2,
+              "title": "Laptop",
+              "amount": 400,
+              "date": "23-11-2022"
+            }
+          ]
         }
       }
     },
     {
-        "id": 1,
-        "card": {
-          "owner": "Silva",
-          "num": "567-567-567-567",
-          "pin": "1234"
-        },
-        "bank": {
-          "balance": 5000,
-          "history": {
-              "deposit": [
-                {
-                  "id": 1,
-                  "amount": 100,
-                  "date": "13-12-2022"
-                },
-                {
-                  "id": 2,
-                  "amount": 100,
-                  "date": "19-12-2022"
-                }
-              ],
-              "withdraw": [
-                {
-                  "id": 1,
-                  "amount": 500,
-                  "date": "13-12-2022"
-                },
-                {
-                  "id": 2,
-                  "amount": 500,
-                  "date": "19-12-2022"
-                }
-              ],
-              "transaction": [
-                {
-                  "id": 1,
-                  "title": "iPhone 69 Pro Max",
-                  "amount": 100,
-                  "date": "23-11-2022"
-                },
-                {
-                  "id": 2,
-                  "title": "Laptop",
-                  "amount": 400,
-                  "date": "23-11-2022"
-                }
-              ]
-          }
+      "id": 1,
+      "card": {
+        "owner": "Silva",
+        "num": "567-567-567-567",
+        "pin": "1234"
+      },
+      "bank": {
+        "balance": 5000,
+        "history": {
+          "deposit": [
+            {
+              "id": 1,
+              "amount": 100,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 100,
+              "date": "19-12-2022"
+            }
+          ],
+          "withdraw": [
+            {
+              "id": 1,
+              "amount": 500,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 500,
+              "date": "19-12-2022"
+            }
+          ],
+          "transaction": [
+            {
+              "id": 1,
+              "title": "iPhone 69 Pro Max",
+              "amount": 100,
+              "date": "23-11-2022"
+            },
+            {
+              "id": 2,
+              "title": "Laptop",
+              "amount": 400,
+              "date": "23-11-2022"
+            }
+          ]
         }
       }
+    },
+    {
+      "card": {
+        "owner": "test",
+        "num": "456 - 384",
+        "pin": "1234"
+      },
+      "bank": {
+        "balance": "5000",
+        "history": {
+          "deposit": [
+            {}
+          ],
+          "withdraw": [
+            {}
+          ],
+          "transaction": [
+            {}
+          ]
+        }
+      },
+      "id": 3
+    },
+    {
+      "card": {
+        "owner": "Juan Dela Cruz",
+        "num": "456 - 170",
+        "pin": "1234"
+      },
+      "bank": {
+        "balance": "5000",
+        "history": {
+          "deposit": [
+            {}
+          ],
+          "withdraw": [
+            {}
+          ],
+          "transaction": [
+            {}
+          ]
+        }
+      },
+      "id": 4
+    }
   ]
 }
