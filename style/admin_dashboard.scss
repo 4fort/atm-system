@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#accounts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .account_container {
+        display: flex;
+        width: 90%;
+        height: 3rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+    
+        .account_name {
+    
+        }
+    
+        .account_card {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        &:nth-child(odd) {
+            background: #efefef;
+        }
+    }
+}
