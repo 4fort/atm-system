@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container .bank {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.container .data {
+  position: relative;
+  width: 60%;
+  background: #ddd;
+}
+.container .data .balance {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.container .data .transaction_history {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
+  background: #bbb;
+  overflow-y: scroll;
+}
+.container .data .transaction_history div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.container .transaction {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.container .transaction div {
+  height: 100px;
+  background: #eee;
+  cursor: pointer;
+}/*# sourceMappingURL=atm.css.map */

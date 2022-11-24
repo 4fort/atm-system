@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .bank {
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .data {
+        position: relative;
+        width: 60%;
+        background: #ddd;
+
+        .balance {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .transaction_history {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80%;
+            background: #bbb;
+            overflow-y: scroll;
+
+            div {
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+            }
+        }
+    }
+
+    .transaction {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            height: 100px;
+            background: #eee;
+            cursor: pointer;
+        }
+
+        .deposit {
+
+        }
+    }
+}

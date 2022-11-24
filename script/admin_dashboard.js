@@ -13,7 +13,7 @@ const admin_displayAccountsList = async () => {
             <div id="${e.id}" class="account_container">
                 <div class="account_id">${e.id}</div>
                 <div class="account_name">${e.card.owner}</div>
-                <div>${e.card.num}</div>
+                <div>${e.card.num.match(/.{1,3}/g).join('-')}</div>
                 <div>${e.card.pin}</div>
                 <div>
                     <span>₱ ${e.bank.balance}</span>
@@ -34,9 +34,7 @@ if(authenticator()) {
     admin_displayAccountsList()
 }
 else {
-    document.body.innerHTML = `
-        unauthorized <a href="../index.html">Go to login page</a>
-    `
+    location.assign('../pages/unauthorized.html')
 }
 
 let control_panel_form = document.getElementById('control_panel_form');
@@ -51,10 +49,10 @@ const card_numGenerator = async () => {
     const res = await fetch(`${api}userAccounts/`);
     const data = await res.json();
 
-    random_card_num = '4567 - ' + Math.floor(Math.random() * (999 - 100 + 1) + 100) + (data[data.length -1].id + 1)
+    random_card_num = '456' + Math.floor(Math.random() * (999 - 100 + 1) + 100) + (data[data.length -1].id + 1)
     console.log(random_card_num)
     
-    random_card_num_element.innerText = random_card_num;
+    random_card_num_element.innerText = random_card_num.match(/.{1,3}/g).join('-')
 
 }
 card_numGenerator()
@@ -125,7 +123,7 @@ const admin_editAccount = async (e) => {
     random_card_num = data.card.num
     control_panel_pin.value = data.card.pin
 
-    random_card_num_element.innerText = random_card_num
+    random_card_num_element.innerText = random_card_num.match(/.{1,3}/g).join('-')
 }
 
 

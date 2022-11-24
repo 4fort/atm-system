@@ -11,22 +11,23 @@ atm_form.addEventListener('submit', (e) => {
 const user_login = async () => {
     const res = await fetch(`${api}userAccounts`)
     const data = await res.json()
-    console.log(data)
+    // console.log(data[0])
 
-    if(atm_card_numInput.value === data[0].card.num) {
-        if(atm_card_pinInput.value === data[0].card.pin){
-            error_message.innerHTML = 'logged in'
-            console.log('it works')
-            
-            login('user')
+    data.forEach(e => {
+        // console.log(e.card.num == atm_card_numInput)
+        if(atm_card_numInput.value === e.card.num) {
+            if(atm_card_pinInput.value === e.card.pin){
+                error_message.innerHTML = 'logged in'
+                console.log('it works')
+                
+                login('user', e)
+            }
+            else {
+                error_message.innerHTML = 'wrong pin'
+                console.log('wrong password')
+            }
         }
-        else {
-            error_message.innerHTML = 'wrong pin'
-            console.log('wrong password')
-        }
-    }
-    else {
-        error_message.innerHTML = 'wrong num'
-        console.log('wrong username')
-    }
+    });
+
+    
 }

@@ -1,6 +1,7 @@
 const authenticator = () => {
-    let SESSION_TOKEN = localStorage.getItem("SESSION_TOKEN_ADMIN")
-    if(SESSION_TOKEN !== null){
+    let SESSION_TOKEN_ADMIN = localStorage.getItem("SESSION_TOKEN_ADMIN")
+    let SESSION_TOKEN = localStorage.getItem("SESSION_TOKEN")
+    if(SESSION_TOKEN !== null || SESSION_TOKEN_ADMIN !== null){
         // document.write('AUTHORIZED')
         return true
     }
@@ -15,7 +16,7 @@ const tokenator = () => {
     return token
 }
 
-const login = (TYPE) => {
+const login = (TYPE, user) => {
 
     if(TYPE === 'admin') {
         localStorage.setItem('SESSION_TOKEN_ADMIN', tokenator())
@@ -31,9 +32,11 @@ const login = (TYPE) => {
         localStorage.setItem('SESSION_TOKEN', tokenator())
 
         if(localStorage.getItem("SESSION_TOKEN")) {
+            localStorage.setItem('loggedInUser', user.id)
             window.location.assign('../pages/atm.html')
         }
     }
+    console.log(user)
 }
 
 const logout = (TYPE) => {
@@ -43,6 +46,7 @@ const logout = (TYPE) => {
     }
     else if(TYPE === 'user') {
         localStorage.removeItem('SESSION_TOKEN')
+        localStorage.removeItem('loggedInUser')
     }
 
     window.location.assign('../index.html')

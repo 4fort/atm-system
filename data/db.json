@@ -8,7 +8,7 @@
       "id": 1,
       "card": {
         "owner": "Dexter",
-        "num": "456-456-456-456",
+        "num": "456456",
         "pin": "7654"
       },
       "bank": {
@@ -58,7 +58,7 @@
     {
       "card": {
         "owner": "FORT",
-        "num": "456 - 420",
+        "num": "456420",
         "pin": "1958"
       },
       "bank": {
@@ -80,7 +80,7 @@
     {
       "card": {
         "owner": "Dexter Fort Banaag Silva",
-        "num": "456 - 724",
+        "num": "456724",
         "pin": "9999"
       },
       "bank": {
@@ -102,7 +102,7 @@
     {
       "card": {
         "owner": "Juan Dela Cruz",
-        "num": "4567 - 1955",
+        "num": "45671955",
         "pin": "1234"
       },
       "bank": {
