@@ -53,7 +53,8 @@
             }
           ]
         }
-      }
+      },
+      "balance": 54
     },
     {
       "card": {
@@ -75,7 +76,19 @@
           ]
         }
       },
-      "id": 9
+      "id": 9,
+      "balance": 10,
+      "history": {
+        "amount": [
+          {}
+        ],
+        "withdraw": [
+          {}
+        ],
+        "transaction": [
+          {}
+        ]
+      }
     },
     {
       "card": {
@@ -97,7 +110,8 @@
           ]
         }
       },
-      "id": 10
+      "id": 10,
+      "balance": 1009
     },
     {
       "card": {
@@ -106,20 +120,30 @@
         "pin": "1234"
       },
       "bank": {
-        "balance": "69420",
-        "history": {
-          "amount": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
+        "balance": "42069"
       },
-      "id": 12
+      "id": 12,
+      "balance": 41070
+    },
+    {
+      "card": {
+        "owner": "TEST",
+        "num": "45637613",
+        "pin": "1234"
+      },
+      "balance": "999999",
+      "history": {
+        "amount": [
+          {}
+        ],
+        "withdraw": [
+          {}
+        ],
+        "transaction": [
+          {}
+        ]
+      },
+      "id": 13
     }
   ]
 }

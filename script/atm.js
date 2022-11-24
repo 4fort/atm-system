@@ -13,7 +13,7 @@ const display_bankData = async () => {
 
 
     user_element.innerHTML = `<i class="bi bi-person-fill"></i>${data.card.owner}`;
-    balance_element.innerText = data.bank.balance
+    balance_element.innerText = data.balance
 
 
     // MODAL
@@ -27,18 +27,21 @@ const display_bankData = async () => {
         el.addEventListener('click', () => {
             if(el.dataset.transaction == 'deposit') {
                 modal_element.style.display = 'flex'
+                modal_input_id.style.display = 'none'
                 modal_title.innerText = 'Deposit'
 
                 transaction_type = el.dataset.transaction
             }
             else if(el.dataset.transaction == 'withdraw') {
                 modal_element.style.display = 'flex'
+                modal_input_id.style.display = 'none'
                 modal_title.innerText = 'Withdraw'
 
                 transaction_type = el.dataset.transaction
             }
             else if(el.dataset.transaction == 'transfer') {
                 modal_element.style.display = 'flex'
+                modal_input_id.style.display = 'block'
                 modal_title.innerText = 'Transfer'
 
                 transaction_type = el.dataset.transaction
@@ -53,16 +56,92 @@ const display_bankData = async () => {
 
     let modal_form = document.querySelector('.modal_form')
     let modal_input = document.querySelector('.modal_input')
+    let modal_input_id = document.querySelector('.modal_input_id')
     modal_form.addEventListener('submit', (e) => {
         e.preventDefault()
 
-        if(transaction_type == 'deposit'){
-            transaction_deposit(loggedInID, modal_input.value)
+        if(transaction_type === 'deposit'){
+            transaction_deposit(loggedInID, data.balance, modal_input.value)
+        }
+        else if(transaction_type === 'withdraw'){
+            transaction_withdraw(loggedInID, data.balance, modal_input.value)
+        }
+        else if(transaction_type === 'transfer'){
+            transaction_transfer(loggedInID, data.balance, modal_input.value)
         }
     })
 }
 display_bankData()
 
-const transaction_deposit = async (userID, amount) => {
+const transaction_deposit = async (userID, balance, amount) => {
+    let currentBalance = Number(balance);
+    let depositAmount = Number(amount)
+    let totalAmount = currentBalance + depositAmount
+
+    const res = await fetch(`${api}userAccounts/${userID}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            balance: totalAmount,
+        })
+    });
+    const data = await res.json()
+}
+
+const transaction_withdraw = async (userID, balance, amount) => {
+    let currentBalance = Number(balance);
+    let withdrawAmount = Number(amount)
+    let totalAmount;
+    if(currentBalance < withdrawAmount) {
+        console.log('insuficient balance')
+    } 
+    else {
+        totalAmount = currentBalance - withdrawAmount
+    }
+
+    const res = await fetch(`${api}userAccounts/${userID}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            balance: totalAmount,
+        })
+    });
+    const data = await res.json()
+}
+
+const transaction_transfer = async (userID, balance, amount) => {
+    let currentBalance = Number(balance);
+    let transferAmount = Number(amount)
+    let totalAmount
+    if(currentBalance < transferAmount) {
+        console.log('insuficient balance')
+    } 
+    else {
+        totalAmount = currentBalance - transferAmount
+    }
+
+    const res = await fetch(`${api}userAccounts/${userID}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            balance: totalAmount,
+        })
+    });
+    const data = await res.json()
+
+    transferFetcher(modal_input_id)
     
+}
+
+const transferFetcher = async (userID) => {
+    const res = await fetch(`${api}userAccounts/${userID}`)
+    const data = await res.json()
+    
+    console.log(data)
 }

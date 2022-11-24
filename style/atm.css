@@ -41,6 +41,9 @@
   font-size: 2rem;
   font-weight: 700;
 }
+.modal form .modal_input_id {
+  display: none;
+}
 .modal form button {
   position: absolute;
   height: 30%;
@@ -97,9 +100,10 @@
   width: 40%;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 .container .transaction div {
-  height: 100px;
+  height: 100%;
   background: #eee;
   cursor: pointer;
 }/*# sourceMappingURL=atm.css.map */

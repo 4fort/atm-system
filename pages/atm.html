@@ -15,17 +15,18 @@
             <span class="return"><i class="bi bi-box-arrow-right"></i></span>
         </div>
         <form action="" class="modal_form">
-            <input type="number" name="deposit" class="modal_input" placeholder="amount">
+            <input type="number" class="modal_input_id" placeholder="id">
+            <input type="number" class="modal_input" placeholder="amount">
             <button type="submit">SUBMIT</button>
         </form>
     </div>
     <div class="nav">
-        <span class="user">USER<i class="bi bi-person-fill"></i></span>
+        <span class="user"><i class="bi bi-person-fill"></i>USER</span>
         <span class="logout" onclick="logout('user')">LOGOUT<i class="bi bi-box-arrow-right"></i></span>
     </div>
     <div class="container">
         <div class="bank data">
-            <div class="balance">P69420</div>
+            <div class="balance">balance</div>
             <div class="transaction_history">
                 <div class="">
                     <span class="transaction_amount">P100</span>
@@ -36,7 +37,7 @@
         <div class="bank transaction">
             <div class="deposit transaction_action" data-transaction="deposit">DEPOSIT</div>
             <div class="withdraw transaction_action" data-transaction="withdraw">WITHDRAW</div>
-            <div class="transfer transaction_action" data-transaction="transfer">TRANSFER</div>
+            <!-- <div class="transfer transaction_action" data-transaction="transfer">TRANSFER</div> -->
         </div>
     </div>
 

@@ -49,6 +49,9 @@ html, body {
             font-weight: 700;
 
         }
+        .modal_input_id {
+            display: none;
+        }
         button {
             position: absolute;
             height: 30%;
@@ -113,9 +116,10 @@ html, body {
         width: 40%;
         display: flex;
         justify-content: space-between;
+        gap: 10px;
 
         div {
-            height: 100px;
+            height: 100%;
             background: #eee;
             cursor: pointer;
         }

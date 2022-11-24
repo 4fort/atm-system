@@ -16,7 +16,7 @@ const admin_displayAccountsList = async () => {
                 <div>${e.card.num.match(/.{1,3}/g).join('-')}</div>
                 <div>${e.card.pin}</div>
                 <div>
-                    <span>₱ ${e.bank.balance}</span>
+                    <span>₱ ${e.balance}</span>
                 </div>
                 <div class="account_actionButtons">
                     <i class="bi bi-pencil-square" onclick="admin_editAccount(this)"></i>
@@ -83,13 +83,11 @@ const admin_addAccount = async (owner, amount, pin) => {
                 num: random_card_num,
                 pin: pin
             },
-            bank: {
-                balance: amount,
-                history: {
-                    amount: [{}],
-                    withdraw: [{}],
-                    transaction: [{}]
-                }
+            balance: amount,
+            history: {
+                amount: [{}],
+                withdraw: [{}],
+                transaction: [{}]
             }
         })
     });
@@ -119,7 +117,7 @@ const admin_editAccount = async (e) => {
     const data = await res.json();
 
     control_panel_owner.value = data.card.owner
-    control_panel_amount.value = data.bank.balance
+    control_panel_amount.value = data.balance
     random_card_num = data.card.num
     control_panel_pin.value = data.card.pin
 
