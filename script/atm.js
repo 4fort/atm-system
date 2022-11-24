@@ -11,21 +11,58 @@ const display_bankData = async () => {
     let user_element = document.querySelector('.user')
     let balance_element = document.querySelector('.balance');
 
-    let deposit_element = document.querySelector('.deposit');
-    let withdraw_element = document.querySelector('.withdraw');
-    let transfer_element = document.querySelector('.transfer');
-    
 
     user_element.innerHTML = `<i class="bi bi-person-fill"></i>${data.card.owner}`;
     balance_element.innerText = data.bank.balance
 
-    let transac_paths = [
-        '../pages/transactions/deposit.html',
-        '../pages/transactions/withdraw.html',
-        '../pages/transactions/transfer.html'
-    ]
-    deposit_element.addEventListener('click', () => {
-        console.log('test')
+
+    // MODAL
+    let transaction_type;
+
+    let modal_element = document.querySelector('.modal')
+    let modal_title = document.querySelector('.title');
+
+    let transaction_action = document.querySelectorAll('.transaction_action')
+    transaction_action.forEach(el => {
+        el.addEventListener('click', () => {
+            if(el.dataset.transaction == 'deposit') {
+                modal_element.style.display = 'flex'
+                modal_title.innerText = 'Deposit'
+
+                transaction_type = el.dataset.transaction
+            }
+            else if(el.dataset.transaction == 'withdraw') {
+                modal_element.style.display = 'flex'
+                modal_title.innerText = 'Withdraw'
+
+                transaction_type = el.dataset.transaction
+            }
+            else if(el.dataset.transaction == 'transfer') {
+                modal_element.style.display = 'flex'
+                modal_title.innerText = 'Transfer'
+
+                transaction_type = el.dataset.transaction
+            }
+        })
+    })
+
+    let close_modal = document.querySelector('.return')
+        close_modal.addEventListener('click', () => {
+            modal_element.style.display = 'none'
+    })
+
+    let modal_form = document.querySelector('.modal_form')
+    let modal_input = document.querySelector('.modal_input')
+    modal_form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        if(transaction_type == 'deposit'){
+            transaction_deposit(loggedInID, modal_input.value)
+        }
     })
 }
 display_bankData()
+
+const transaction_deposit = async (userID, amount) => {
+    
+}

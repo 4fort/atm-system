@@ -9,9 +9,19 @@
     <title>ATM</title>
 </head>
 <body>
+    <div class="modal">
+        <div class="title_bar">
+            <span class="title">DEPOSIT</span>
+            <span class="return"><i class="bi bi-box-arrow-right"></i></span>
+        </div>
+        <form action="" class="modal_form">
+            <input type="number" name="deposit" class="modal_input" placeholder="amount">
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
     <div class="nav">
         <span class="user">USER<i class="bi bi-person-fill"></i></span>
-        <span onclick="logout('user')">LOGOUT<i class="bi bi-box-arrow-right"></i></span>
+        <span class="logout" onclick="logout('user')">LOGOUT<i class="bi bi-box-arrow-right"></i></span>
     </div>
     <div class="container">
         <div class="bank data">
@@ -24,9 +34,9 @@
             </div>
         </div>
         <div class="bank transaction">
-            <div class="deposit">DEPOSIT</div>
-            <div class="withdraw">WITHDRAW</div>
-            <div class="transfer">TRANSFER</div>
+            <div class="deposit transaction_action" data-transaction="deposit">DEPOSIT</div>
+            <div class="withdraw transaction_action" data-transaction="withdraw">WITHDRAW</div>
+            <div class="transfer transaction_action" data-transaction="transfer">TRANSFER</div>
         </div>
     </div>
 

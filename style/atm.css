@@ -3,9 +3,59 @@
   padding: 0;
 }
 
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.7333333333);
+  z-index: 9;
+}
+.modal div, .modal form {
+  padding: 8px;
+}
+.modal .title_bar {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  background: #bbb;
+}
+.modal .title_bar i {
+  cursor: pointer;
+}
+.modal form {
+  width: 300px;
+  height: 120px;
+  position: relative;
+  background: #eee;
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column;
+}
+.modal form input {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.modal form button {
+  position: absolute;
+  height: 30%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
+}
+.nav .logout {
+  cursor: pointer;
 }
 
 .container {
