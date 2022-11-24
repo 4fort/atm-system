@@ -62,7 +62,7 @@
         "pin": "1958"
       },
       "bank": {
-        "balance": "99999",
+        "balance": "5000",
         "history": {
           "amount": [
             {}
@@ -81,12 +81,12 @@
       "card": {
         "owner": "Dexter Fort Banaag Silva",
         "num": "456 - 724",
-        "pin": "1234"
+        "pin": "9999"
       },
       "bank": {
-        "balance": "500",
+        "balance": "10000",
         "history": {
-          "deposit": [
+          "amount": [
             {}
           ],
           "withdraw": [
@@ -101,12 +101,12 @@
     },
     {
       "card": {
-        "owner": "test",
-        "num": "4567 - 6014",
-        "pin": "1432"
+        "owner": "Juan Dela Cruz",
+        "num": "4567 - 1955",
+        "pin": "1234"
       },
       "bank": {
-        "balance": "1000",
+        "balance": "69420",
         "history": {
           "amount": [
             {}
@@ -119,7 +119,7 @@
           ]
         }
       },
-      "id": 11
+      "id": 12
     }
   ]
 }

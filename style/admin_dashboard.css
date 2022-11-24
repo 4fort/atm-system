@@ -18,13 +18,26 @@
 }
 .dbTable .account_container {
   display: flex;
-  height: 3rem;
+  height: 4rem;
   justify-content: space-between;
-  align-items: center;
-  padding: 5px;
+  overflow: hidden;
+  text-align: center;
 }
 .dbTable .account_container div {
   width: 120px;
+  height: 100%;
+  padding: 10px;
+}
+.dbTable .account_container div:nth-child(even) {
+  background: rgba(0, 0, 0, 0.0666666667);
+}
+.dbTable .account_container .account_id {
+  width: 10px;
+  text-align: start;
+}
+.dbTable .account_container .account_name {
+  width: 200px;
+  text-align: start;
 }
 .dbTable .account_container .account_card {
   display: flex;
@@ -32,6 +45,7 @@
 }
 .dbTable .account_container .account_actionButtons {
   width: 60px;
+  text-align: end;
 }
 .dbTable .account_container .account_actionButtons i {
   padding-left: 5px;

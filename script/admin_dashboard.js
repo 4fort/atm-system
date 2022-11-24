@@ -11,11 +11,10 @@ const admin_displayAccountsList = async () => {
     data.forEach(e => {
         admin_account_list_element.innerHTML += `
             <div id="${e.id}" class="account_container">
+                <div class="account_id">${e.id}</div>
                 <div class="account_name">${e.card.owner}</div>
-                <div  class="account_card">
-                    <span>${e.card.num}</span>
-                    <span>${e.card.pin}</span>
-                </div>
+                <div>${e.card.num}</div>
+                <div>${e.card.pin}</div>
                 <div>
                     <span>₱ ${e.bank.balance}</span>
                 </div>
@@ -52,7 +51,7 @@ const card_numGenerator = async () => {
     const res = await fetch(`${api}userAccounts/`);
     const data = await res.json();
 
-    random_card_num = '4567 - ' + Math.floor(Math.random() * (999 - 100 + 1) + 100) + (data.length + 1)
+    random_card_num = '4567 - ' + Math.floor(Math.random() * (999 - 100 + 1) + 100) + (data[data.length -1].id + 1)
     console.log(random_card_num)
     
     random_card_num_element.innerText = random_card_num;
