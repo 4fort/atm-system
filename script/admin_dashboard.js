@@ -16,7 +16,7 @@ const admin_displayAccountsList = async () => {
                 <div>${e.card.num.match(/.{1,3}/g).join('-')}</div>
                 <div>${e.card.pin}</div>
                 <div>
-                    <span>₱ ${e.balance}</span>
+                    <span class="currency">${e.balance}</span>
                 </div>
                 <div class="account_actionButtons">
                     <i class="bi bi-pencil-square" onclick="admin_editAccount(this)"></i>

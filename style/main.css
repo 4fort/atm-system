@@ -1,1 +1,4 @@
-/*# sourceMappingURL=main.css.map */
+@charset "UTF-8";
+.currency::before {
+  content: "₱";
+}/*# sourceMappingURL=main.css.map */

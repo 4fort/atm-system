@@ -58,7 +58,7 @@
         "num": "45613414",
         "pin": "1234"
       },
-      "balance": "90",
+      "balance": 93,
       "id": 14
     }
   ],
@@ -139,6 +139,27 @@
       "date": "10-0-2022",
       "userAccountId": 14,
       "id": 11
+    },
+    {
+      "type": "deposit",
+      "amount": "4",
+      "date": "10-0-2022 (23:29)",
+      "userAccountId": 14,
+      "id": 12
+    },
+    {
+      "type": "deposit",
+      "amount": "3",
+      "date": "\n    10-\n    0-\n    2022 \n    (23:\n    31)",
+      "userAccountId": 14,
+      "id": 13
+    },
+    {
+      "type": "withdraw",
+      "amount": "4",
+      "date": "\n    10-\n    0-\n    2022 \n    (11:\n    32)",
+      "userAccountId": 14,
+      "id": 14
     }
   ]
 }

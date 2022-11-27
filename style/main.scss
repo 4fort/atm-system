@@ -1,3 +1,9 @@
 html, body {
     // font-family: ;
 }
+
+.currency {
+    &::before {
+        content: '₱';
+    }
+}

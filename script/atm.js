@@ -1,7 +1,3 @@
-if(!authenticator()) {
-    location.assign('../pages/unauthorized.html')
-}
-
 let loggedInID = Number(localStorage.getItem('loggedInUser'))
 
 
@@ -81,14 +77,20 @@ const display_bankData = async () => {
         transaction_history.innerHTML += `
             <div class="">
                 <span class="transaction_type">${e.type}</span>
-                <span class="transaction_amount">P${e.amount}</span>
+                <span class="transaction_amount currency">${e.amount}</span>
                 <span class="transaction_date">${e.date}</span>
             </div>
             `
     })
     
 }
-display_bankData()
+
+if(authenticator()) {
+    display_bankData()
+}
+else {
+    location.assign('../pages/unauthorized.html')
+}
 
 const transaction_deposit = async (userID, balance, amount) => {
     let currentBalance = Number(balance);
@@ -166,7 +168,12 @@ const transferFetcher = async (userID) => {
 }
 
 const transaction_historyHandler = async () => {
-    let currentDate = `${new Date().getMonth()}-${new Date().getDay()}-${new Date().getFullYear()}`
+    let currentDate = `
+    ${new Date().getMonth()}-
+    ${new Date().getDay()}-
+    ${new Date().getFullYear()} 
+    (${new Date().getHours() > 12 ? new Date().getHours() - 12 : new Date().getHours() === 00 && 12}:
+    ${new Date().getMinutes()})`
 
     const res = await fetch(`${api}history`, {
         method: 'POST',
