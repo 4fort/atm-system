@@ -85,6 +85,7 @@
 .container .data .transaction_history {
   display: flex;
   position: absolute;
+  flex-direction: column;
   bottom: 0;
   width: 100%;
   height: 80%;
@@ -94,7 +95,7 @@
 .container .data .transaction_history div {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .container .transaction {
   width: 40%;

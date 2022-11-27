@@ -12,7 +12,7 @@ let transaction_type;
 
 
 const display_bankData = async () => {
-    const res = await fetch(`${api}userAccounts/${loggedInID}`)
+    const res = await fetch(`${api}userAccounts/${loggedInID}?_embed=history`)
     const data = await res.json()
 
     console.log(data)
@@ -25,7 +25,6 @@ const display_bankData = async () => {
 
 
     // MODAL
-
     let modal_element = document.querySelector('.modal')
     let modal_title = document.querySelector('.title');
 
@@ -74,6 +73,20 @@ const display_bankData = async () => {
             transaction_transfer(loggedInID, data.balance, modal_input.value)
         }
     })
+
+    // HISTORY
+    let transaction_history = document.querySelector('.transaction_history');
+
+    Array.from(data.history).forEach((e) => {
+        transaction_history.innerHTML += `
+            <div class="">
+                <span class="transaction_type">${e.type}</span>
+                <span class="transaction_amount">P${e.amount}</span>
+                <span class="transaction_date">${e.date}</span>
+            </div>
+            `
+    })
+    
 }
 display_bankData()
 
@@ -115,9 +128,8 @@ const transaction_withdraw = async (userID, balance, amount) => {
             balance: totalAmount,
         })
     });
-    const data = await res.json()
 
-    await transaction_historyHandler
+    await transaction_historyHandler()
 }
 
 const transaction_transfer = async (userID, balance, amount) => {
