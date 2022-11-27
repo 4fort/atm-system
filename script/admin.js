@@ -28,6 +28,3 @@ const admin_login = async () => {
         console.log('wrong username')
     }
 }
-
-
-const input = document.getElementsByTagName('input')

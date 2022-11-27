@@ -169,11 +169,12 @@ const transferFetcher = async (userID) => {
 
 const transaction_historyHandler = async () => {
     let currentDate = `
-    ${new Date().getMonth()}-
-    ${new Date().getDay()}-
+    ${new Date().getMonth() + 1} -
+    ${new Date().getDate()} -
     ${new Date().getFullYear()} 
     (${new Date().getHours() > 12 ? new Date().getHours() - 12 : new Date().getHours() === 00 && 12}:
-    ${new Date().getMinutes()})`
+    ${new Date().getMinutes()}
+    ${new Date().getHours() >= 12  ? 'PM' : 'AM'})`
 
     const res = await fetch(`${api}history`, {
         method: 'POST',
