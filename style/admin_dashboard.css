@@ -9,12 +9,16 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  overflow-y: scroll;
 }
 .dbTable .account_detailInfoCate, .dbTable #accounts {
   width: 90%;
 }
 .dbTable .account_detailInfoCate .account_container {
   background: gray !important;
+}
+.dbTable #accounts {
+  height: 60vh;
 }
 .dbTable .account_container {
   display: flex;
@@ -58,7 +62,7 @@
 .control_panel {
   position: fixed;
   bottom: 0;
-  height: 200px;
+  height: 20vh;
   width: 100%;
   background: #efefef;
 }

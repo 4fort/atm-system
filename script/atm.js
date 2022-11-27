@@ -2,8 +2,16 @@ if(!authenticator()) {
     location.assign('../pages/unauthorized.html')
 }
 
+let loggedInID = Number(localStorage.getItem('loggedInUser'))
+
+
+let modal_form = document.querySelector('.modal_form')
+let modal_input = document.querySelector('.modal_input')
+let modal_input_id = document.querySelector('.modal_input_id')
+let transaction_type;
+
+
 const display_bankData = async () => {
-    let loggedInID = localStorage.getItem('loggedInUser')
     const res = await fetch(`${api}userAccounts/${loggedInID}`)
     const data = await res.json()
 
@@ -17,7 +25,6 @@ const display_bankData = async () => {
 
 
     // MODAL
-    let transaction_type;
 
     let modal_element = document.querySelector('.modal')
     let modal_title = document.querySelector('.title');
@@ -54,9 +61,6 @@ const display_bankData = async () => {
             modal_element.style.display = 'none'
     })
 
-    let modal_form = document.querySelector('.modal_form')
-    let modal_input = document.querySelector('.modal_input')
-    let modal_input_id = document.querySelector('.modal_input_id')
     modal_form.addEventListener('submit', (e) => {
         e.preventDefault()
 
@@ -84,10 +88,11 @@ const transaction_deposit = async (userID, balance, amount) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            balance: totalAmount,
+            balance: totalAmount
         })
     });
-    const data = await res.json()
+
+    await transaction_historyHandler();
 }
 
 const transaction_withdraw = async (userID, balance, amount) => {
@@ -111,6 +116,8 @@ const transaction_withdraw = async (userID, balance, amount) => {
         })
     });
     const data = await res.json()
+
+    await transaction_historyHandler
 }
 
 const transaction_transfer = async (userID, balance, amount) => {
@@ -144,4 +151,21 @@ const transferFetcher = async (userID) => {
     const data = await res.json()
     
     console.log(data)
+}
+
+const transaction_historyHandler = async () => {
+    let currentDate = `${new Date().getMonth()}-${new Date().getDay()}-${new Date().getFullYear()}`
+
+    const res = await fetch(`${api}history`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            type: transaction_type,
+            amount: modal_input.value,
+            date: currentDate,
+            userAccountId: loggedInID
+        })
+    });
 }

@@ -11,49 +11,6 @@
         "num": "456456",
         "pin": "7654"
       },
-      "bank": {
-        "balance": 5000,
-        "history": {
-          "deposit": [
-            {
-              "id": 1,
-              "amount": 100,
-              "date": "13-12-2022"
-            },
-            {
-              "id": 2,
-              "amount": 100,
-              "date": "19-12-2022"
-            }
-          ],
-          "withdraw": [
-            {
-              "id": 1,
-              "amount": 500,
-              "date": "13-12-2022"
-            },
-            {
-              "id": 2,
-              "amount": 500,
-              "date": "19-12-2022"
-            }
-          ],
-          "transaction": [
-            {
-              "id": 1,
-              "title": "iPhone 69 Pro Max",
-              "amount": 100,
-              "date": "23-11-2022"
-            },
-            {
-              "id": 2,
-              "title": "Laptop",
-              "amount": 400,
-              "date": "23-11-2022"
-            }
-          ]
-        }
-      },
       "balance": 54
     },
     {
@@ -62,53 +19,14 @@
         "num": "456420",
         "pin": "1958"
       },
-      "bank": {
-        "balance": "5000",
-        "history": {
-          "amount": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
-      },
       "id": 9,
-      "balance": 10,
-      "history": {
-        "amount": [
-          {}
-        ],
-        "withdraw": [
-          {}
-        ],
-        "transaction": [
-          {}
-        ]
-      }
+      "balance": 6778
     },
     {
       "card": {
         "owner": "Dexter Fort Banaag Silva",
         "num": "456724",
         "pin": "9999"
-      },
-      "bank": {
-        "balance": "10000",
-        "history": {
-          "amount": [
-            {}
-          ],
-          "withdraw": [
-            {}
-          ],
-          "transaction": [
-            {}
-          ]
-        }
       },
       "id": 10,
       "balance": 1009
@@ -127,23 +45,58 @@
     },
     {
       "card": {
-        "owner": "TEST",
-        "num": "45637613",
+        "owner": "test",
+        "num": "45618713",
         "pin": "1234"
       },
-      "balance": "999999",
-      "history": {
-        "amount": [
-          {}
-        ],
-        "withdraw": [
-          {}
-        ],
-        "transaction": [
-          {}
-        ]
-      },
+      "balance": 100,
       "id": 13
+    },
+    {
+      "card": {
+        "owner": "Alpha",
+        "num": "45613414",
+        "pin": "1234"
+      },
+      "balance": "99",
+      "id": 14
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "type": "deposit",
+      "amount": "2",
+      "userAccountId": 13,
+      "date": "10-0-2022"
+    },
+    {
+      "id": 2,
+      "type": "deposit",
+      "amount": "1",
+      "userAccountId": 13,
+      "date": "10-5-2022"
+    },
+    {
+      "type": "deposit",
+      "amount": "1",
+      "userAccountId": 13,
+      "date": "10-0-2022",
+      "id": 3
+    },
+    {
+      "type": "deposit",
+      "amount": "69",
+      "userAccountId": 13,
+      "date": "10-0-2022",
+      "id": 4
+    },
+    {
+      "type": "withdraw",
+      "amount": "81",
+      "date": "10-0-2022",
+      "userAccountId": 13,
+      "id": 5
     }
   ]
 }

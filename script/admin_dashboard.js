@@ -83,12 +83,7 @@ const admin_addAccount = async (owner, amount, pin) => {
                 num: random_card_num,
                 pin: pin
             },
-            balance: amount,
-            history: {
-                amount: [{}],
-                withdraw: [{}],
-                transaction: [{}]
-            }
+            balance: amount
         })
     });
     const data = await res.json();

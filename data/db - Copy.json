@@ -1,0 +1,129 @@
+{
+  "adminPanel": {
+    "usn": "admin",
+    "password": "admin123"
+  },
+  "userAccounts": [
+    {
+      "id": 1,
+      "card": {
+        "owner": "Dexter",
+        "num": "456456",
+        "pin": "7654"
+      },
+      "bank": {
+        "balance": 5000,
+        "history": {
+          "deposit": [
+            {
+              "id": 1,
+              "amount": 100,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 100,
+              "date": "19-12-2022"
+            }
+          ],
+          "withdraw": [
+            {
+              "id": 1,
+              "amount": 500,
+              "date": "13-12-2022"
+            },
+            {
+              "id": 2,
+              "amount": 500,
+              "date": "19-12-2022"
+            }
+          ],
+          "transaction": [
+            {
+              "id": 1,
+              "title": "iPhone 69 Pro Max",
+              "amount": 100,
+              "date": "23-11-2022"
+            },
+            {
+              "id": 2,
+              "title": "Laptop",
+              "amount": 400,
+              "date": "23-11-2022"
+            }
+          ]
+        }
+      },
+      "balance": 54
+    },
+    {
+      "card": {
+        "owner": "FORT",
+        "num": "456420",
+        "pin": "1958"
+      },
+      "bank": {
+        "balance": "5000",
+        "history": {
+          "amount": [
+            {}
+          ],
+          "withdraw": [
+            {}
+          ],
+          "transaction": [
+            {}
+          ]
+        }
+      },
+      "id": 9,
+      "balance": 6760,
+      "history": {
+        "amount": [
+          {}
+        ],
+        "withdraw": [
+          {}
+        ],
+        "transaction": [
+          {}
+        ]
+      }
+    },
+    {
+      "card": {
+        "owner": "Dexter Fort Banaag Silva",
+        "num": "456724",
+        "pin": "9999"
+      },
+      "bank": {
+        "balance": "10000",
+        "history": {
+          "amount": [
+            {}
+          ],
+          "withdraw": [
+            {}
+          ],
+          "transaction": [
+            {}
+          ]
+        }
+      },
+      "id": 10,
+      "balance": 1009
+    },
+    {
+      "card": {
+        "owner": "Juan Dela Cruz",
+        "num": "45671955",
+        "pin": "1234"
+      },
+      "bank": {
+        "balance": "42069"
+      },
+      "id": 12,
+      "balance": 41070
+    }
+  ]
+}
