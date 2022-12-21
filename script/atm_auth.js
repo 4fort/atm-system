@@ -1,6 +1,7 @@
 const atm_form = document.getElementById('atm_form');
 const atm_card_numInput = document.getElementById('card_num')
 const atm_card_pinInput = document.getElementById('card_pin')
+const atm_qr_card_pinInput = document.getElementById('qr-card_pin');
 
 atm_form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -15,8 +16,8 @@ const user_login = async (el) => {
 
     data.forEach(e => {
         // console.log(e.card.num == atm_card_numInput)
-        if(atm_card_numInput.value === e.card.num) {
-            if(atm_card_pinInput.value === e.card.pin){
+        if(atm_card_numInput.value === e.card.num || el === e.qrpin) {
+            if(atm_card_pinInput.value === e.card.pin || atm_qr_card_pinInput.value === e.card.pin){
                 error_message.innerHTML = 'logged in'
                 console.log('it works')
                 
@@ -27,11 +28,19 @@ const user_login = async (el) => {
                 console.log('wrong password')
             }
         }
-
-        // USING QR SCANNER. SCAN FROM CAMERA THEN CALL user_login FUNCTION FROM scanner.js WITH AN ARGUMENT
-        if(el === e.qrpin) {
-            login('user', e)
+        // USING QR SCANNER. SCAN FROM CAMERA THEN CALL user_login FUNCTION FROM scanner.js WITH AN ARGUMENT 
+        // else if(el !== undefined) {
+        //     if(el === e.qrpin) {
+        //         login('user', e)
+        //         console.log(el)
+        //     }
+        // }
+        else {
+            error_message.innerHTML = 'wrong credentials'
+            console.log('wrong number')
         }
+
+        
     });
 
     

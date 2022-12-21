@@ -83,6 +83,7 @@ const admin_addAccount = async (owner, amount, pin) => {
                 num: random_card_num,
                 pin: pin
             },
+            qrpin: tokenator(),
             balance: amount
         })
     });
