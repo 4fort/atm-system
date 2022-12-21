@@ -12,11 +12,13 @@ const display_bankData = async () => {
     const data = await res.json()
 
     console.log(data)
-    let user_element = document.querySelector('.user')
+    let user_element = document.querySelectorAll('.user')
     let balance_element = document.querySelector('.balance');
 
 
-    user_element.innerHTML = `<i class="bi bi-person-fill"></i>${data.card.owner}`;
+    user_element.forEach(e => {
+        e.innerHTML = data.card.owner;
+    }) 
     balance_element.innerText = data.balance
 
 
