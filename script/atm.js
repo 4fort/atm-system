@@ -119,6 +119,8 @@ const transaction_withdraw = async (userID, balance, amount) => {
     } 
     else {
         totalAmount = currentBalance - withdrawAmount
+
+        await transaction_historyHandler()
     }
 
     const res = await fetch(`${api}userAccounts/${userID}`, {
@@ -131,7 +133,6 @@ const transaction_withdraw = async (userID, balance, amount) => {
         })
     });
 
-    await transaction_historyHandler()
 }
 
 const transaction_transfer = async (userID, balance, amount) => {
@@ -172,8 +173,8 @@ const transaction_historyHandler = async () => {
     ${new Date().getMonth() + 1} -
     ${new Date().getDate()} -
     ${new Date().getFullYear()} 
-    (${new Date().getHours() > 12 ? new Date().getHours() - 12 : new Date().getHours() === 00 && 12}:
-    ${new Date().getMinutes()}
+    (${new Date().getHours() > 12 ? new Date().getHours() - 12 : new Date().getHours() === 00 ? 12 : new Date().getHours()}:
+    ${new Date().getMinutes() < 10 ? "0" + new Date().getMinutes() : new Date().getMinutes()}
     ${new Date().getHours() >= 12  ? 'PM' : 'AM'})`
 
     const res = await fetch(`${api}history`, {

@@ -1,5 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap');
+
 html, body {
-    // font-family: ;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--black-color);
+}
+// ADD CARD WITH INFOS IN ATM INTERFACE
+
+
+:root {
+    --primary-color: #4C3A51;
+    --secondary-color: #774360;
+    --tertiary-color: #B25068;
+    --quaternary-color: #E7AB79;
+    --white-color: #fff;
+    --gray-color: #303030;
+    --dark_gray-color: #252525;
+    --black-color: #1b1c1e;
+
+    --radius-primary: 5px;
+    --radius-secondary: 10px;
+
+    --transition-duration: ease .1s;
+}
+
+main {
+    min-height: 95vh;
+    max-width: 1200px;
+    margin: 12px auto;
+
+    color: var(--white-color);
+    position: relative;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
+
+.brand {
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    span {
+        color: var(--quaternary-color);
+    }
+}
+
+nav {
+    // position: absolute;
+    // top: 0;
+    // width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    height: 60px;
+    background-color: var(--dark_gray-color);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 99;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // padding: 0 15px;
+        font-size: 1.2rem;
+        background: linear-gradient(180deg, var(--gray-color) 0%, var(--dark_gray-color) 100%);
+        text-decoration: none;
+        color: var(--white-color);
+        height: 100%;
+        width: 60px;
+    }
+}
+
+section {
+    margin-top: 40px;
+    height: 85%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+        
+
+        &.left {
+            background-color: var(--dark_gray-color);
+            border-top-left-radius: var(--radius-secondary);
+            border-bottom-left-radius: var(--radius-secondary);
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 100%;
+                
+                h1 {
+                    // position: absolute;
+                    left: 0;
+                }
+    
+                .login_inputs {
+                    display: flex;
+                    flex-direction: column;
+    
+                    label {
+                        font-size: .9rem;
+                        padding-bottom: 4px;
+                    }
+                    input {
+                        font-size: 1.2rem;
+                        font-family: monospace;
+                        background-color: var(--gray-color);
+                        padding: 8px;
+                        margin-bottom: 15px;
+                        border-radius: var(--radius-primary);
+                        // border: solid var(--primary-color);
+                        border: none;
+                        outline: none;
+                        transition: var(--transition-duration);
+    
+                        &:focus {
+                            outline: solid 3px var(--secondary-color);
+                        }
+                    }
+                }
+    
+                button {
+                    color: var(--white-color);
+                    background: rgb(178,80,104);
+                    background: linear-gradient(180deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
+                    padding: 18px;
+                    border-radius: var(--radius-primary);
+                    border: none;
+                    cursor: pointer;
+                    // transition: var(--transition-duration);
+
+                    &:hover {
+                        outline: solid 2px var(--primary-color);
+                    }
+                }
+            }
+        }
+
+        &.right {
+            background-color: var(--gray-color);
+            border-top-right-radius: var(--radius-secondary);
+            border-bottom-right-radius: var(--radius-secondary);
+        }
+ 
+    }
 }
 
 .currency {

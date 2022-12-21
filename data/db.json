@@ -19,8 +19,9 @@
         "num": "456420",
         "pin": "1958"
       },
+      "qrpin": "12132003fort",
       "id": 9,
-      "balance": 6778
+      "balance": 0
     },
     {
       "card": {
@@ -188,6 +189,34 @@
       "date": "\n    11 -\n    28 -\n    2022 \n    (12:\n    33\n    AM)",
       "userAccountId": 14,
       "id": 18
+    },
+    {
+      "type": "withdraw",
+      "amount": "6000",
+      "date": "\n    12 -\n    21 -\n    2022 \n    (1:\n    00\n    PM)",
+      "userAccountId": 9,
+      "id": 19
+    },
+    {
+      "type": "withdraw",
+      "amount": "10",
+      "date": "\n    12 -\n    21 -\n    2022 \n    (1:\n    00\n    PM)",
+      "userAccountId": 9,
+      "id": 20
+    },
+    {
+      "type": "deposit",
+      "amount": "1000",
+      "date": "\n    12 -\n    21 -\n    2022 \n    (1:\n    03\n    PM)",
+      "userAccountId": 9,
+      "id": 21
+    },
+    {
+      "type": "withdraw",
+      "amount": "1000",
+      "date": "\n    12 -\n    21 -\n    2022 \n    (1:\n    04\n    PM)",
+      "userAccountId": 9,
+      "id": 22
     }
   ]
 }

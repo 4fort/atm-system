@@ -1,4 +1,131 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap");
+html, body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--black-color);
+}
+
+:root {
+  --primary-color: #4C3A51;
+  --secondary-color: #774360;
+  --tertiary-color: #B25068;
+  --quaternary-color: #E7AB79;
+  --white-color: #fff;
+  --gray-color: #303030;
+  --dark_gray-color: #252525;
+  --black-color: #1b1c1e;
+  --radius-primary: 5px;
+  --radius-secondary: 10px;
+  --transition-duration: ease .1s;
+}
+
+main {
+  min-height: 95vh;
+  max-width: 1200px;
+  margin: 12px auto;
+  color: var(--white-color);
+  position: relative;
+}
+
+.brand {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+.brand span {
+  color: var(--quaternary-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+  height: 60px;
+  background-color: var(--dark_gray-color);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 99;
+}
+nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: linear-gradient(180deg, var(--gray-color) 0%, var(--dark_gray-color) 100%);
+  text-decoration: none;
+  color: var(--white-color);
+  height: 100%;
+  width: 60px;
+}
+
+section {
+  margin-top: 40px;
+  height: 85%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+}
+section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+}
+section .container.left {
+  background-color: var(--dark_gray-color);
+  border-top-left-radius: var(--radius-secondary);
+  border-bottom-left-radius: var(--radius-secondary);
+}
+section .container.left form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+section .container.left form h1 {
+  left: 0;
+}
+section .container.left form .login_inputs {
+  display: flex;
+  flex-direction: column;
+}
+section .container.left form .login_inputs label {
+  font-size: 0.9rem;
+  padding-bottom: 4px;
+}
+section .container.left form .login_inputs input {
+  font-size: 1.2rem;
+  font-family: monospace;
+  background-color: var(--gray-color);
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: var(--radius-primary);
+  border: none;
+  outline: none;
+  transition: var(--transition-duration);
+}
+section .container.left form .login_inputs input:focus {
+  outline: solid 3px var(--secondary-color);
+}
+section .container.left form button {
+  color: var(--white-color);
+  background: rgb(178, 80, 104);
+  background: linear-gradient(180deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
+  padding: 18px;
+  border-radius: var(--radius-primary);
+  border: none;
+  cursor: pointer;
+}
+section .container.left form button:hover {
+  outline: solid 2px var(--primary-color);
+}
+section .container.right {
+  background-color: var(--gray-color);
+  border-top-right-radius: var(--radius-secondary);
+  border-bottom-right-radius: var(--radius-secondary);
+}
+
 .currency::before {
   content: "₱";
 }/*# sourceMappingURL=main.css.map */
