@@ -8,7 +8,7 @@ atm_form.addEventListener('submit', (e) => {
     user_login();
 })
 
-const user_login = async () => {
+const user_login = async (el) => {
     const res = await fetch(`${api}userAccounts`)
     const data = await res.json()
     // console.log(data[0])
@@ -26,6 +26,11 @@ const user_login = async () => {
                 error_message.innerHTML = 'wrong pin'
                 console.log('wrong password')
             }
+        }
+
+        // USING QR SCANNER. SCAN FROM CAMERA THEN CALL user_login FUNCTION FROM scanner.js WITH AN ARGUMENT
+        if(el === e.qrpin) {
+            login('user', e)
         }
     });
 

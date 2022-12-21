@@ -21,7 +21,7 @@
       },
       "qrpin": "12132003fort",
       "id": 9,
-      "balance": 0
+      "balance": 9499
     },
     {
       "card": {
@@ -217,6 +217,20 @@
       "date": "\n    12 -\n    21 -\n    2022 \n    (1:\n    04\n    PM)",
       "userAccountId": 9,
       "id": 22
+    },
+    {
+      "type": "deposit",
+      "amount": "9999",
+      "date": "\n    12 -\n    21 -\n    2022 \n    (10:\n    30\n    PM)",
+      "userAccountId": 9,
+      "id": 23
+    },
+    {
+      "type": "withdraw",
+      "amount": "500",
+      "date": "\n    12 -\n    21 -\n    2022 \n    (10:\n    30\n    PM)",
+      "userAccountId": 9,
+      "id": 24
     }
   ]
 }
