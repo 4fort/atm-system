@@ -19,7 +19,7 @@ const display_bankData = async () => {
     user_element.forEach(e => {
         e.innerHTML = data.card.owner;
     }) 
-    balance_element.innerText = data.balance
+    balance_element.innerText = data.balance.toLocaleString('en-US')
 
     // CARD DISPLAY
     let atm_cardNum_Element = document.querySelector('.atm_cardNum');
@@ -88,7 +88,7 @@ const display_bankData = async () => {
         transaction_history.innerHTML += `
             <div class="">
                 <span class="transaction_type">${e.type}</span>
-                <span class="transaction_amount currency">${e.amount}</span>
+                <span class="transaction_amount currency">${e.amount.toLocaleString('en-US')}</span>
                 <span class="transaction_date">${e.date}</span>
             </div>
             `

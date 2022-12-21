@@ -112,8 +112,29 @@ section {
     height: 85%;
     width: 100%;
     display: flex;
+    // flex-direction: column;
     position: absolute;
     box-shadow: 0px 6px 8px #00000011;
+
+    .top {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+
+        .user_balance {
+            display: flex;
+            flex-direction: column;
+
+            .balance {
+                font-weight: 900;
+                font-size: 2rem;
+    
+    
+            }
+        }
+    }
 
     .atm_card {
         width: 350px;
@@ -306,6 +327,6 @@ section {
 
 .currency {
     &::before {
-        content: '₱';
+        content: '₱ ';
     }
 }

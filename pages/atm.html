@@ -28,26 +28,33 @@
             <span class="logout" onclick="logout('user')">LOGOUT<i class="bi bi-box-arrow-right"></i></span>
         </nav>
 
-        <section style="gap: 10px;">
+        <section style="gap: 10px; flex-direction: column;">
 
-            <div class="atm_card">
-                <div class="brand"><span>FORT</span>BANK</div>
-                <div class="atm_cardNum">########</div>
-                <div class="atm_cardHolder">CARD HOLDER<span id="atm_cardHolder">User</span></div>
-                <div class="atm_cardId">ID<span id="atm_cardId">69</span></div>
-            </div>
+            <div class="top">
+                <div class="atm_card">
+                    <div class="brand"><span>FORT</span>BANK</div>
+                    <div class="atm_cardNum">########</div>
+                    <div class="atm_cardHolder">CARD HOLDER<span id="atm_cardHolder">User</span></div>
+                    <div class="atm_cardId">ID<span id="atm_cardId">69</span></div>
+                </div>
 
-            <div class="balance currency">balance</div>
-
-            <div class="container left atm_left">
-                <div class="transaction_history">
+                <div class="user_balance">
+                    You have
+                    <span class="balance currency">balance</span>
                 </div>
             </div>
 
-            <div class="container right atm_right">
-                <div class="deposit transaction_action" data-transaction="deposit">DEPOSIT</div>
-                <div class="withdraw transaction_action" data-transaction="withdraw">WITHDRAW</div>
-                <!-- <div class="transfer transaction_action" data-transaction="transfer">TRANSFER</div> -->
+            <div class="bottom">
+                <div class="container left atm_left">
+                    <div class="transaction_history">
+                    </div>
+                </div>
+    
+                <div class="container right atm_right">
+                    <div class="deposit transaction_action" data-transaction="deposit">DEPOSIT</div>
+                    <div class="withdraw transaction_action" data-transaction="withdraw">WITHDRAW</div>
+                    <!-- <div class="transfer transaction_action" data-transaction="transfer">TRANSFER</div> -->
+                </div>
             </div>
         </section>
     </main>
