@@ -115,6 +115,56 @@ section {
     position: absolute;
     box-shadow: 0px 6px 8px #00000011;
 
+    .atm_card {
+        width: 350px;
+        height: 200px;
+        background: rgb(178,80,104);
+        background: linear-gradient(200deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
+        position: relative;
+        border-radius: calc(var(--radius-secondary) + 5px);
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .atm_cardNum {
+            position: absolute;
+            top: 75px;
+            left: 20px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        @mixin atm_cardDetails {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            font-size: .7rem;
+            opacity: .5;
+
+            span {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+        }
+
+        .atm_cardHolder {
+            @include atm_cardDetails();
+
+            left: 20px;
+            bottom: 30px;
+        }
+        
+        .atm_cardId {
+            @include atm_cardDetails();
+            
+            right: 20px;
+            bottom: 30px;
+        }
+    }
+
     .container {
         display: flex;
         justify-content: center;
@@ -188,54 +238,7 @@ section {
         &.atm_left {
             width: 70%;
 
-            .atm_card {
-                width: 350px;
-                height: 200px;
-                background: rgb(178,80,104);
-                background: linear-gradient(200deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
-                position: relative;
-                border-radius: calc(var(--radius-secondary) + 5px);
-
-                .brand {
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                }
-
-                .atm_cardNum {
-                    position: absolute;
-                    top: 75px;
-                    left: 20px;
-                    font-size: 1.4rem;
-                }
-
-                @mixin atm_cardDetails {
-                    display: flex;
-                    flex-direction: column;
-                    position: absolute;
-                    font-size: .7rem;
-                    opacity: .5;
-
-                    span {
-                        font-size: 1.2rem;
-                        font-weight: 700;
-                    }
-                }
-
-                .atm_cardHolder {
-                    @include atm_cardDetails();
-
-                    left: 20px;
-                    bottom: 30px;
-                }
-                
-                .atm_cardId {
-                    @include atm_cardDetails();
-                    
-                    right: 20px;
-                    bottom: 30px;
-                }
-            }
+            
         }
 
         &.atm_right {

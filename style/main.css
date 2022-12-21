@@ -100,6 +100,52 @@ section {
   position: absolute;
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
 }
+section .atm_card {
+  width: 350px;
+  height: 200px;
+  background: rgb(178, 80, 104);
+  background: linear-gradient(200deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
+  position: relative;
+  border-radius: calc(var(--radius-secondary) + 5px);
+}
+section .atm_card .brand {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+section .atm_card .atm_cardNum {
+  position: absolute;
+  top: 75px;
+  left: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+section .atm_card .atm_cardHolder {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  left: 20px;
+  bottom: 30px;
+}
+section .atm_card .atm_cardHolder span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+section .atm_card .atm_cardId {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  right: 20px;
+  bottom: 30px;
+}
+section .atm_card .atm_cardId span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 section .container {
   display: flex;
   justify-content: center;
@@ -159,51 +205,6 @@ section .container.right form input {
 }
 section .container.atm_left {
   width: 70%;
-}
-section .container.atm_left .atm_card {
-  width: 350px;
-  height: 200px;
-  background: rgb(178, 80, 104);
-  background: linear-gradient(200deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
-  position: relative;
-  border-radius: calc(var(--radius-secondary) + 5px);
-}
-section .container.atm_left .atm_card .brand {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-section .container.atm_left .atm_card .atm_cardNum {
-  position: absolute;
-  top: 75px;
-  left: 20px;
-  font-size: 1.4rem;
-}
-section .container.atm_left .atm_card .atm_cardHolder {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  font-size: 0.7rem;
-  opacity: 0.5;
-  left: 20px;
-  bottom: 30px;
-}
-section .container.atm_left .atm_card .atm_cardHolder span {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-section .container.atm_left .atm_card .atm_cardId {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  font-size: 0.7rem;
-  opacity: 0.5;
-  right: 20px;
-  bottom: 30px;
-}
-section .container.atm_left .atm_card .atm_cardId span {
-  font-size: 1.2rem;
-  font-weight: 700;
 }
 section .container.atm_right {
   width: 30%;

@@ -21,6 +21,15 @@ const display_bankData = async () => {
     }) 
     balance_element.innerText = data.balance
 
+    // CARD DISPLAY
+    let atm_cardNum_Element = document.querySelector('.atm_cardNum');
+    let atm_cardHolder_Element = document.querySelector('#atm_cardHolder');
+    let atm_cardId_Element = document.querySelector('#atm_cardId');
+
+    atm_cardNum_Element.innerText = data.card.num.match(/.{1,3}/g).join('-');
+    atm_cardHolder_Element.innerText = data.card.owner;
+    atm_cardId_Element.innerText = data.id;
+
 
     // MODAL
     let modal_element = document.querySelector('.modal')
