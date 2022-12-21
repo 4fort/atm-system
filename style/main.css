@@ -98,24 +98,27 @@ section {
   width: 100%;
   display: flex;
   position: absolute;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
 }
-section .top {
+section.atm_interface {
+  gap: 10px;
+  flex-direction: column;
+}
+section.atm_interface .top {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
 }
-section .top .user_balance {
+section.atm_interface .top .user_balance {
   display: flex;
   flex-direction: column;
 }
-section .top .user_balance .balance {
+section.atm_interface .top .user_balance .balance {
   font-weight: 900;
   font-size: 2rem;
 }
-section .atm_card {
+section.atm_interface .atm_card {
   width: 350px;
   height: 200px;
   background: rgb(178, 80, 104);
@@ -123,19 +126,19 @@ section .atm_card {
   position: relative;
   border-radius: calc(var(--radius-secondary) + 5px);
 }
-section .atm_card .brand {
+section.atm_interface .atm_card .brand {
   position: absolute;
   top: 20px;
   right: 20px;
 }
-section .atm_card .atm_cardNum {
+section.atm_interface .atm_card .atm_cardNum {
   position: absolute;
   top: 75px;
   left: 20px;
   font-size: 1.4rem;
   font-weight: 700;
 }
-section .atm_card .atm_cardHolder {
+section.atm_interface .atm_card .atm_cardHolder {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -144,11 +147,11 @@ section .atm_card .atm_cardHolder {
   left: 20px;
   bottom: 30px;
 }
-section .atm_card .atm_cardHolder span {
+section.atm_interface .atm_card .atm_cardHolder span {
   font-size: 1.2rem;
   font-weight: 700;
 }
-section .atm_card .atm_cardId {
+section.atm_interface .atm_card .atm_cardId {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -157,36 +160,39 @@ section .atm_card .atm_cardId {
   right: 20px;
   bottom: 30px;
 }
-section .atm_card .atm_cardId span {
+section.atm_interface .atm_card .atm_cardId span {
   font-size: 1.2rem;
   font-weight: 700;
 }
-section .container {
+section.login_interface {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
+}
+section.login_interface .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 50%;
 }
-section .container.left {
+section.login_interface .container.left {
   background-color: var(--dark_gray-color);
   border-top-left-radius: var(--radius-secondary);
   border-bottom-left-radius: var(--radius-secondary);
 }
-section .container.left form {
+section.login_interface .container.left form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
 }
-section .container.left form h1 {
+section.login_interface .container.left form h1 {
   left: 0;
 }
-section .container.left form .login_inputs {
+section.login_interface .container.left form .login_inputs {
   display: flex;
   flex-direction: column;
 }
-section .container.left form button {
+section.login_interface .container.left form button {
   color: var(--white-color);
   background: rgb(178, 80, 104);
   background: linear-gradient(180deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
@@ -197,10 +203,10 @@ section .container.left form button {
   cursor: pointer;
   transition: var(--transition-duration);
 }
-section .container.left form button:hover {
+section.login_interface .container.left form button:hover {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
-section .container.right {
+section.login_interface .container.right {
   background-color: var(--gray-color);
   border-top-right-radius: var(--radius-secondary);
   border-bottom-right-radius: var(--radius-secondary);
@@ -208,20 +214,20 @@ section .container.right {
   flex-direction: column;
   justify-content: space-around;
 }
-section .container.right form {
+section.login_interface .container.right form {
   display: flex;
   flex-direction: column;
 }
-section .container.right form label {
+section.login_interface .container.right form label {
   margin-top: 20px;
 }
-section .container.right form input {
+section.login_interface .container.right form input {
   background-color: var(--dark_gray-color);
 }
-section .container.atm_left {
+section.login_interface .container.atm_left {
   width: 70%;
 }
-section .container.atm_right {
+section.login_interface .container.atm_right {
   width: 30%;
 }
 

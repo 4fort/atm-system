@@ -114,159 +114,168 @@ section {
     display: flex;
     // flex-direction: column;
     position: absolute;
-    box-shadow: 0px 6px 8px #00000011;
 
-    .top {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
+    &.atm_interface {
+        gap: 10px;
+        flex-direction: column;
 
-        .user_balance {
+        .top {
+            width: 100%;
             display: flex;
-            flex-direction: column;
-
-            .balance {
-                font-weight: 900;
-                font-size: 2rem;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
     
-    
-            }
-        }
-    }
-
-    .atm_card {
-        width: 350px;
-        height: 200px;
-        background: rgb(178,80,104);
-        background: linear-gradient(200deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
-        position: relative;
-        border-radius: calc(var(--radius-secondary) + 5px);
-
-        .brand {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .atm_cardNum {
-            position: absolute;
-            top: 75px;
-            left: 20px;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-
-        @mixin atm_cardDetails {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            font-size: .7rem;
-            opacity: .5;
-
-            span {
-                font-size: 1.2rem;
-                font-weight: 700;
-            }
-        }
-
-        .atm_cardHolder {
-            @include atm_cardDetails();
-
-            left: 20px;
-            bottom: 30px;
-        }
-        
-        .atm_cardId {
-            @include atm_cardDetails();
-            
-            right: 20px;
-            bottom: 30px;
-        }
-    }
-
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 50%;
-        
-
-        &.left {
-            background-color: var(--dark_gray-color);
-            border-top-left-radius: var(--radius-secondary);
-            border-bottom-left-radius: var(--radius-secondary);
-
-            form {
+            .user_balance {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-evenly;
-                height: 100%;
-                
-                h1 {
-                    // position: absolute;
-                    left: 0;
-                }
     
-                .login_inputs {
+                .balance {
+                    font-weight: 900;
+                    font-size: 2rem;
+        
+        
+                }
+            }
+        }
+    
+        .atm_card {
+            width: 350px;
+            height: 200px;
+            background: rgb(178,80,104);
+            background: linear-gradient(200deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
+            position: relative;
+            border-radius: calc(var(--radius-secondary) + 5px);
+    
+            .brand {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+    
+            .atm_cardNum {
+                position: absolute;
+                top: 75px;
+                left: 20px;
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+    
+            @mixin atm_cardDetails {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                font-size: .7rem;
+                opacity: .5;
+    
+                span {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                }
+            }
+    
+            .atm_cardHolder {
+                @include atm_cardDetails();
+    
+                left: 20px;
+                bottom: 30px;
+            }
+            
+            .atm_cardId {
+                @include atm_cardDetails();
+                
+                right: 20px;
+                bottom: 30px;
+            }
+        }
+    }
+    
+    &.login_interface {
+        box-shadow: 0px 6px 8px #00000011;
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            
+    
+            &.left {
+                background-color: var(--dark_gray-color);
+                border-top-left-radius: var(--radius-secondary);
+                border-bottom-left-radius: var(--radius-secondary);
+    
+                form {
                     display: flex;
                     flex-direction: column;
-                }
+                    justify-content: space-evenly;
+                    height: 100%;
+                    
+                    h1 {
+                        // position: absolute;
+                        left: 0;
+                    }
+        
+                    .login_inputs {
+                        display: flex;
+                        flex-direction: column;
+                    }
+        
+                    button {
+                        color: var(--white-color);
+                        background: rgb(178,80,104);
+                        background: linear-gradient(180deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
+                        padding: 18px;
+                        border-radius: var(--radius-primary);
+                        border: none;
+                        box-shadow: 0px 6px 8px #00000011;
+                        cursor: pointer;
+                        transition: var(--transition-duration);
     
-                button {
-                    color: var(--white-color);
-                    background: rgb(178,80,104);
-                    background: linear-gradient(180deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
-                    padding: 18px;
-                    border-radius: var(--radius-primary);
-                    border: none;
-                    box-shadow: 0px 6px 8px #00000011;
-                    cursor: pointer;
-                    transition: var(--transition-duration);
-
-                    &:hover {
-                        box-shadow: 0px 6px 8px #00000033;
+                        &:hover {
+                            box-shadow: 0px 6px 8px #00000033;
+                        }
                     }
                 }
             }
-        }
-
-        &.right {
-            background-color: var(--gray-color);
-            border-top-right-radius: var(--radius-secondary);
-            border-bottom-right-radius: var(--radius-secondary);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            
-            form {
+    
+            &.right {
+                background-color: var(--gray-color);
+                border-top-right-radius: var(--radius-secondary);
+                border-bottom-right-radius: var(--radius-secondary);
+    
                 display: flex;
                 flex-direction: column;
-
-                label {
-                    margin-top: 20px;
-                }
-                input {
-                    background-color: var(--dark_gray-color);
+                justify-content: space-around;
+                
+                form {
+                    display: flex;
+                    flex-direction: column;
+    
+                    label {
+                        margin-top: 20px;
+                    }
+                    input {
+                        background-color: var(--dark_gray-color);
+                    }
                 }
             }
-        }
-
-
-        &.atm_left {
-            width: 70%;
-
-            
-        }
-
-        &.atm_right {
-            width: 30%;
-        }
- 
+    
+    
+            &.atm_left {
+                width: 70%;
+    
+                
+            }
+    
+            &.atm_right {
+                width: 30%;
+            }
+     
+        }        
     }
+
 }
 
 .modal {
