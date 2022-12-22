@@ -73,6 +73,15 @@ nav .adminLogin {
   height: 100%;
   width: 60px;
 }
+nav .logout {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+nav .logout i {
+  font-size: 1.2rem;
+}
 
 label {
   font-size: 0.9rem;
@@ -116,10 +125,11 @@ section.atm_interface .top .atm_card {
   width: 350px;
   height: 200px;
   background: rgb(178, 80, 104);
-  background: linear-gradient(200deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
+  background: linear-gradient(45deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
   position: relative;
   border-radius: calc(var(--radius-secondary) + 5px);
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
+  transition: 0.8s;
 }
 section.atm_interface .top .atm_card .brand {
   position: absolute;
@@ -268,9 +278,6 @@ section.atm_interface .bottom .right {
   flex-direction: column;
   gap: inherit;
 }
-section.atm_interface .bottom .right .deposit {
-  background-color: var(--tertiary-color);
-}
 section.atm_interface .bottom .right .withdraw {
   background-color: var(--secondary-color);
 }
@@ -286,6 +293,11 @@ section.atm_interface .bottom .right .transaction_action {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
   cursor: pointer;
   overflow: hidden;
+  background: linear-gradient(80deg, var(--tertiary-color), var(--secondary-color) 50%, var(--primary-color)) var(--x, 0)/200%;
+  transition: var(--transition-duration);
+}
+section.atm_interface .bottom .right .transaction_action:hover {
+  --x: 100%;
 }
 section.atm_interface .bottom .right .transaction_action span {
   position: absolute;
@@ -296,7 +308,10 @@ section.atm_interface .bottom .right .transaction_action span {
   font-size: 18rem;
   transition: var(--transition-duration);
 }
-section.atm_interface .bottom .right .transaction_action span:hover {
+section.atm_interface .bottom .right .transaction_action:hover {
+  font-size: 1.45rem;
+}
+section.atm_interface .bottom .right .transaction_action:hover > span {
   transform: rotate(-8deg);
   font-size: 18.5rem;
 }

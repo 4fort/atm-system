@@ -86,6 +86,17 @@ nav {
         height: 100%;
         width: 60px;
     }
+
+    .logout {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: .9rem;
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
 }
 
 label {
@@ -132,10 +143,11 @@ section {
                 width: 350px;
                 height: 200px;
                 background: rgb(178,80,104);
-                background: linear-gradient(200deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
+                background: linear-gradient(45deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
                 position: relative;
                 border-radius: calc(var(--radius-secondary) + 5px);
                 box-shadow: 0px 6px 8px #00000011;
+                transition: .8s;
         
                 .brand {
                     position: absolute;
@@ -317,8 +329,7 @@ section {
                 gap: inherit;
 
                 .deposit {
-                    background-color: var(--tertiary-color);
-
+                    
                 }
 
                 .withdraw {
@@ -337,6 +348,11 @@ section {
                     box-shadow: 0px 6px 8px #00000011;
                     cursor: pointer;
                     overflow: hidden;
+                    background: linear-gradient(80deg, var(--tertiary-color), var(--secondary-color) 50%, var(--primary-color)) var(--x, 0)/ 200%;
+                    transition: var(--transition-duration);
+                    &:hover {
+                        --x: 100%;
+                    }
 
                     & span {
                         position: absolute;
@@ -346,8 +362,10 @@ section {
                         opacity: .3;
                         font-size: 18rem;
                         transition: var(--transition-duration);
-
-                        &:hover {
+                    }
+                    &:hover {
+                        font-size: 1.45rem;
+                        & > span {
                             transform: rotate(-8deg);
                             font-size: 18.5rem;
                         }
