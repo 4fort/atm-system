@@ -28,7 +28,20 @@ const display_bankData = async () => {
 
     atm_cardNum_Element.innerText = data.card.num.match(/.{1,3}/g).join('-');
     atm_cardHolder_Element.innerText = data.card.owner;
-    atm_cardId_Element.innerText = data.id;
+    let atm_cardPin_showHide = true;
+
+    atm_cardId_Element.addEventListener('click', () => {
+        console.log(atm_cardPin_showHide)
+
+        if(atm_cardPin_showHide) {
+            atm_cardId_Element.innerText = '****';
+            atm_cardPin_showHide = false;
+        }
+        else {
+            atm_cardId_Element.innerText = data.card.pin;
+            atm_cardPin_showHide = true;
+        }
+    })
 
 
     // MODAL

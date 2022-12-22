@@ -3,6 +3,13 @@
 * {
     margin: 0;
     padding: 0;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 }
 
 html, body {
@@ -92,6 +99,7 @@ nav {
         align-items: center;
         font-weight: 500;
         font-size: .9rem;
+        cursor: pointer;
 
         i {
             font-size: 1.2rem;
@@ -106,6 +114,7 @@ label {
 input {
     font-size: 1.2rem;
     font-family: monospace;
+    color: var(--white-color);
     background-color: var(--light_white-color);
     padding: 8px;
     margin-bottom: 15px;
@@ -186,8 +195,12 @@ section {
                 .atm_cardId {
                     @include atm_cardDetails();
                     
-                    right: 20px;
+                    left: 270px;
                     bottom: 30px;
+
+                    span {
+                        cursor: pointer;
+                    }
                 }
             }
     
@@ -407,6 +420,12 @@ section {
                     .login_inputs {
                         display: flex;
                         flex-direction: column;
+
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
                     }
         
                     button {
@@ -445,6 +464,12 @@ section {
                     }
                     input {
                         background-color: var(--dark_gray-color);
+
+                        &::-webkit-outer-spin-button,
+                        &::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
                     }
                 }
             }
@@ -465,6 +490,7 @@ section {
     align-items: center;
     flex-direction: column;
     background: #000000bb;
+    color: var(--white-color);
     z-index: 9;
 
     div, form {
@@ -475,7 +501,7 @@ section {
         display: flex;
         justify-content: space-between;
         width: 300px;
-        background: #bbb;
+        background-color: var(--dark_gray-color);
 
         i {
             cursor: pointer;
@@ -486,7 +512,7 @@ section {
         width: 300px;
         height: 120px;
         position: relative;
-        background: #eee;
+        background-color: var(--black-color);
         display: flex;
         padding-top: 30px;
         flex-direction: column;
@@ -500,12 +526,22 @@ section {
             display: none;
         }
         button {
+            font-weight: 600;
+            letter-spacing: .1rem;
+            color: var(--white-color);
+            background: linear-gradient(180deg, var(--light_white-color) 0%, var(--dark_gray-color) 100%);
             position: absolute;
             height: 30%;
             width: 100%;
             bottom: 0;
             left: 0;
+            border: none;
             cursor: pointer;
+
+            &:hover {
+                background: rgb(178,80,104);
+                background: linear-gradient(180deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ const admin_displayAccountsList = async () => {
                 <div class="account_name">${e.card.owner}</div>
                 <div>${e.card.num.match(/.{1,3}/g).join('-')}</div>
                 <div>${e.card.pin}</div>
+                <div>${e.qrpin}&nbsp;<a href="#" download><i class="bi bi-download"></i></a></div>
                 <div>
                     <span class="currency">${e.balance}</span>
                 </div>

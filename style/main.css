@@ -3,6 +3,11 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 
 html, body {
@@ -78,6 +83,7 @@ nav .logout {
   align-items: center;
   font-weight: 500;
   font-size: 0.9rem;
+  cursor: pointer;
 }
 nav .logout i {
   font-size: 1.2rem;
@@ -91,6 +97,7 @@ label {
 input {
   font-size: 1.2rem;
   font-family: monospace;
+  color: var(--white-color);
   background-color: var(--light_white-color);
   padding: 8px;
   margin-bottom: 15px;
@@ -162,12 +169,15 @@ section.atm_interface .top .atm_card .atm_cardId {
   position: absolute;
   font-size: 0.7rem;
   opacity: 0.5;
-  right: 20px;
+  left: 270px;
   bottom: 30px;
 }
 section.atm_interface .top .atm_card .atm_cardId span {
   font-size: 1.2rem;
   font-weight: 700;
+}
+section.atm_interface .top .atm_card .atm_cardId span {
+  cursor: pointer;
 }
 section.atm_interface .top .user_balance {
   display: flex;
@@ -343,6 +353,11 @@ section.login_interface .container.left form .login_inputs {
   display: flex;
   flex-direction: column;
 }
+section.login_interface .container.left form .login_inputs input::-webkit-outer-spin-button,
+section.login_interface .container.left form .login_inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 section.login_interface .container.left form button {
   color: var(--white-color);
   background: rgb(178, 80, 104);
@@ -375,6 +390,10 @@ section.login_interface .container.right form label {
 section.login_interface .container.right form input {
   background-color: var(--dark_gray-color);
 }
+section.login_interface .container.right form input::-webkit-outer-spin-button, section.login_interface .container.right form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .modal {
   position: absolute;
@@ -387,6 +406,7 @@ section.login_interface .container.right form input {
   align-items: center;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.7333333333);
+  color: var(--white-color);
   z-index: 9;
 }
 .modal div, .modal form {
@@ -396,7 +416,7 @@ section.login_interface .container.right form input {
   display: flex;
   justify-content: space-between;
   width: 300px;
-  background: #bbb;
+  background-color: var(--dark_gray-color);
 }
 .modal .title_bar i {
   cursor: pointer;
@@ -405,7 +425,7 @@ section.login_interface .container.right form input {
   width: 300px;
   height: 120px;
   position: relative;
-  background: #eee;
+  background-color: var(--black-color);
   display: flex;
   padding-top: 30px;
   flex-direction: column;
@@ -418,12 +438,21 @@ section.login_interface .container.right form input {
   display: none;
 }
 .modal form button {
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  color: var(--white-color);
+  background: linear-gradient(180deg, var(--light_white-color) 0%, var(--dark_gray-color) 100%);
   position: absolute;
   height: 30%;
   width: 100%;
   bottom: 0;
   left: 0;
+  border: none;
   cursor: pointer;
+}
+.modal form button:hover {
+  background: rgb(178, 80, 104);
+  background: linear-gradient(180deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
 }
 
 .currency::before {
