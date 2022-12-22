@@ -69,7 +69,7 @@
         "pin": "1234"
       },
       "qrpin": "sdasd9hmm7",
-      "balance": 1350,
+      "balance": 1349,
       "id": 15
     }
   ],
@@ -348,6 +348,14 @@
       "previousAmount": 1300,
       "userAccountId": 15,
       "id": 40
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (9:\n    54\n    AM)",
+      "amount": "1",
+      "previousAmount": 1350,
+      "userAccountId": 15,
+      "id": 41
     }
   ]
 }

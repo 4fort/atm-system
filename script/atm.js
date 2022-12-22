@@ -91,7 +91,7 @@ const display_bankData = async () => {
                 <span class="transaction_date">${e.date}</span>
                 <span class="transaction_balance">
                     <div class="transaction_previousAmount currency">${e.previousAmount}</div>
-                    <div class="transaction_amount currency">${e.amount}</div>
+                    <div class="transaction_amount currency" style="color:${e.type == 'withdraw' ? 'red' : 'green'};">${e.type == 'withdraw' ? '-' : '+'} ${e.amount}</div>
                 </span>
             </div>
             `
