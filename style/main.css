@@ -17,8 +17,10 @@ html, body {
   --tertiary-color: #B25068;
   --quaternary-color: #E7AB79;
   --white-color: #fff;
-  --gray-color: #303030;
+  --light_white-color: #303030;
+  --gray-color: #2b2b2b;
   --dark_gray-color: #252525;
+  --light_black-color: #1f1f1f;
   --black-color: #1b1c1e;
   --radius-primary: 5px;
   --radius-secondary: 10px;
@@ -26,7 +28,7 @@ html, body {
 }
 
 main {
-  min-height: 95vh;
+  height: 100vh;
   max-width: 1200px;
   margin: 12px auto;
   color: var(--white-color);
@@ -65,7 +67,7 @@ nav .adminLogin {
   position: absolute;
   right: 0;
   font-size: 1.2rem;
-  background: linear-gradient(180deg, var(--gray-color) 0%, var(--dark_gray-color) 100%);
+  background: linear-gradient(180deg, var(--light_white-color) 0%, var(--dark_gray-color) 100%);
   text-decoration: none;
   color: var(--white-color);
   height: 100%;
@@ -80,7 +82,7 @@ label {
 input {
   font-size: 1.2rem;
   font-family: monospace;
-  background-color: var(--gray-color);
+  background-color: var(--light_white-color);
   padding: 8px;
   margin-bottom: 15px;
   border-radius: var(--radius-primary);
@@ -117,6 +119,7 @@ section.atm_interface .top .atm_card {
   background: linear-gradient(200deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
   position: relative;
   border-radius: calc(var(--radius-secondary) + 5px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
 }
 section.atm_interface .top .atm_card .brand {
   position: absolute;
@@ -166,17 +169,22 @@ section.atm_interface .top .user_balance .balance {
 }
 section.atm_interface .bottom {
   display: flex;
-  height: 100%;
-  background-color: var(--dark_gray-color);
+  height: 65%;
+  gap: 10px;
 }
 section.atm_interface .bottom .left {
   width: 70%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
 }
 section.atm_interface .bottom .left .transaction_history_title {
-  padding: 15px;
+  background-color: var(--gray-color);
+  font-weight: 600;
+  border-top-left-radius: var(--radius-secondary);
+  border-top-right-radius: var(--radius-secondary);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
 }
 section.atm_interface .bottom .left .transaction_history_title span:first-child {
   text-align: start;
@@ -185,9 +193,17 @@ section.atm_interface .bottom .left .transaction_history_title span:last-child {
   text-align: end;
 }
 section.atm_interface .bottom .left .transaction_history {
-  padding: 15px;
+  background-color: var(--light_black-color);
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  border-bottom-left-radius: var(--radius-secondary);
+  border-bottom-right-radius: var(--radius-secondary);
+  overflow-y: scroll;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 section.atm_interface .bottom .left .transaction_history span:first-child {
   text-align: start;
@@ -195,19 +211,39 @@ section.atm_interface .bottom .left .transaction_history span:first-child {
 section.atm_interface .bottom .left .transaction_history span:last-child {
   text-align: end;
 }
+section.atm_interface .bottom .left .transaction_history::-webkit-scrollbar {
+  width: 6px;
+}
+section.atm_interface .bottom .left .transaction_history::-webkit-scrollbar-track {
+  opacity: 0;
+}
+section.atm_interface .bottom .left .transaction_history::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #888;
+}
+section.atm_interface .bottom .left .transaction_history::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 section.atm_interface .bottom .left .cell {
-  height: 60px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  gap: 20px;
 }
 section.atm_interface .bottom .left .cell span, section.atm_interface .bottom .left .cell div {
   width: 100%;
 }
+section.atm_interface .bottom .left .cell .transaction_type {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+section.atm_interface .bottom .left .cell .hsd {
+  opacity: 0.5;
+}
 section.atm_interface .bottom .left .cell .transaction_balance {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 section.atm_interface .bottom .left .cell .transaction_balance .transaction_previousAmount {
   font-weight: 700;
@@ -216,8 +252,53 @@ section.atm_interface .bottom .left .cell .transaction_balance .transaction_prev
 section.atm_interface .bottom .left .cell .transaction_balance .transaction_amount {
   font-weight: 500;
 }
+section.atm_interface .bottom .left .hsc {
+  min-height: 60px;
+  background-color: var(--dark_gray-color);
+  border-radius: var(--radius-secondary);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
+}
+section.atm_interface .bottom .left .hsc:nth-child(even) {
+  background-color: var(--light_white-color);
+}
 section.atm_interface .bottom .right {
   width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+}
+section.atm_interface .bottom .right .deposit {
+  background-color: var(--tertiary-color);
+}
+section.atm_interface .bottom .right .withdraw {
+  background-color: var(--secondary-color);
+}
+section.atm_interface .bottom .right .transaction_action {
+  position: relative;
+  height: 50%;
+  border-radius: var(--radius-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
+  cursor: pointer;
+  overflow: hidden;
+}
+section.atm_interface .bottom .right .transaction_action span {
+  position: absolute;
+  left: -80px;
+  bottom: -80px;
+  transform: rotate(-10deg);
+  opacity: 0.3;
+  font-size: 18rem;
+  transition: var(--transition-duration);
+}
+section.atm_interface .bottom .right .transaction_action span:hover {
+  transform: rotate(-8deg);
+  font-size: 18.5rem;
 }
 section.login_interface {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
@@ -262,7 +343,7 @@ section.login_interface .container.left form button:hover {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
 section.login_interface .container.right {
-  background-color: var(--gray-color);
+  background-color: var(--light_white-color);
   border-top-right-radius: var(--radius-secondary);
   border-bottom-right-radius: var(--radius-secondary);
   display: flex;

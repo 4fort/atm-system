@@ -69,7 +69,7 @@
         "pin": "1234"
       },
       "qrpin": "sdasd9hmm7",
-      "balance": 1349,
+      "balance": 1500,
       "id": 15
     }
   ],
@@ -356,6 +356,46 @@
       "previousAmount": 1350,
       "userAccountId": 15,
       "id": 41
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (10:\n    41\n    AM)",
+      "amount": "1",
+      "previousAmount": 1349,
+      "userAccountId": 15,
+      "id": 42
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (10:\n    41\n    AM)",
+      "amount": "100",
+      "previousAmount": 1348,
+      "userAccountId": 15,
+      "id": 43
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (10:\n    45\n    AM)",
+      "amount": "48",
+      "previousAmount": 1448,
+      "userAccountId": 15,
+      "id": 44
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (11:\n    26\n    AM)",
+      "amount": "96",
+      "previousAmount": 1496,
+      "userAccountId": 15,
+      "id": 45
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (11:\n    26\n    AM)",
+      "amount": "92",
+      "previousAmount": 1592,
+      "userAccountId": 15,
+      "id": 46
     }
   ]
 }

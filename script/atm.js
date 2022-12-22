@@ -85,16 +85,16 @@ const display_bankData = async () => {
     let transaction_history = document.querySelector('.transaction_history');
 
     Array.from(data.history).forEach((e) => {
-        transaction_history.innerHTML += `
-            <div class="cell">
-                <span class="transaction_type">${e.type}</span>
-                <span class="transaction_date">${e.date}</span>
-                <span class="transaction_balance">
-                    <div class="transaction_previousAmount currency">${e.previousAmount}</div>
-                    <div class="transaction_amount currency" style="color:${e.type == 'withdraw' ? 'red' : 'green'};">${e.type == 'withdraw' ? '-' : '+'} ${e.amount}</div>
-                </span>
-            </div>
-            `
+        transaction_history.insertAdjacentHTML("afterbegin", `
+        <div class="cell hsc">
+            <span class="transaction_type">${e.type}</span>
+            <span class="transaction_date hsd">${e.date}</span>
+            <span class="transaction_balance">
+                <div class="transaction_previousAmount currency">${e.previousAmount}</div>
+                <div class="transaction_amount currency" style="color:${e.type == 'withdraw' ? 'red' : 'green'};">${e.type == 'withdraw' ? '-' : '+'} ${e.amount}</div>
+            </span>
+        </div>
+        `);
     })
     
 }
