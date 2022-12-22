@@ -172,6 +172,43 @@ section.atm_interface .bottom {
 section.atm_interface .bottom .left {
   width: 70%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+section.atm_interface .bottom .left .transaction_history_title {
+  padding: 15px;
+}
+section.atm_interface .bottom .left .transaction_history_title span:first-child {
+  text-align: start;
+}
+section.atm_interface .bottom .left .transaction_history_title span:last-child {
+  text-align: end;
+}
+section.atm_interface .bottom .left .transaction_history {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+section.atm_interface .bottom .left .transaction_history span:first-child {
+  text-align: start;
+}
+section.atm_interface .bottom .left .transaction_history span:last-child {
+  text-align: end;
+}
+section.atm_interface .bottom .left .cell {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 20px;
+}
+section.atm_interface .bottom .left .cell span, section.atm_interface .bottom .left .cell div {
+  width: 100%;
+}
+section.atm_interface .bottom .left .cell .transaction_balance {
+  display: flex;
+  flex-direction: column;
 }
 section.atm_interface .bottom .right {
   width: 30%;

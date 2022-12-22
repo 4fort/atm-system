@@ -194,13 +194,58 @@ section {
             display: flex;
             height: 100%;
             background-color: var(--dark_gray-color);
+            // gap: 10px;
     
             .left {
                 width: 70%;
                 height: 100%;
-    
+                display: flex;
+                flex-direction: column;
+
+                @mixin cellStyle {
+                    padding: 15px;
+
+                    & span:first-child {
+                        text-align: start;
+                    }
+                    & span:last-child {
+                        text-align: end;
+                    }
+                }
+
                 .transaction_history_title {
-                    
+                    @include cellStyle();
+                }
+
+                .transaction_history {
+                    @include cellStyle();
+
+                    display: flex;
+                    flex-direction: column;
+                }
+    
+                .cell {
+                    width: 100%;
+                    height: 60px;
+                    // padding: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    // overflow: hidden;
+                    gap: 20px;
+
+                    span, div {
+                        width: 100%;
+                    }
+
+                    .transaction_date {
+                        
+                    }
+
+                    .transaction_balance {
+                        display: flex;
+                        flex-direction: column;
+                    }
                 }
                 
             }

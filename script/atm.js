@@ -86,13 +86,13 @@ const display_bankData = async () => {
 
     Array.from(data.history).forEach((e) => {
         transaction_history.innerHTML += `
-            <div class="">
+            <div class="cell">
                 <span class="transaction_type">${e.type}</span>
                 <span class="transaction_date">${e.date}</span>
-                <div class="transaction_balance">
-                    <span class="transaction_amount currency">${e.amount}</span>
-                    <span class="transaction_previousAmount currency">${e.previousAmount}</span>
-                </div>
+                <span class="transaction_balance">
+                    <div class="transaction_previousAmount currency">${e.previousAmount}</div>
+                    <div class="transaction_amount currency">${e.amount}</div>
+                </span>
             </div>
             `
     })
