@@ -88,8 +88,11 @@ const display_bankData = async () => {
         transaction_history.innerHTML += `
             <div class="">
                 <span class="transaction_type">${e.type}</span>
-                <span class="transaction_amount currency">${e.amount.toLocaleString('en-US')}</span>
                 <span class="transaction_date">${e.date}</span>
+                <div class="transaction_balance">
+                    <span class="transaction_amount currency">${e.amount}</span>
+                    <span class="transaction_previousAmount currency">${e.previousAmount}</span>
+                </div>
             </div>
             `
     })
@@ -118,7 +121,7 @@ const transaction_deposit = async (userID, balance, amount) => {
         })
     });
 
-    await transaction_historyHandler();
+    await transaction_historyHandler(currentBalance);
 }
 
 const transaction_withdraw = async (userID, balance, amount) => {
@@ -131,7 +134,7 @@ const transaction_withdraw = async (userID, balance, amount) => {
     else {
         totalAmount = currentBalance - withdrawAmount
 
-        await transaction_historyHandler()
+        await transaction_historyHandler(currentBalance)
     }
 
     const res = await fetch(`${api}userAccounts/${userID}`, {
@@ -179,7 +182,7 @@ const transferFetcher = async (userID) => {
     console.log(data)
 }
 
-const transaction_historyHandler = async () => {
+const transaction_historyHandler = async (currentBalance) => {
     let currentDate = `
     ${new Date().getMonth() + 1} -
     ${new Date().getDate()} -
@@ -195,8 +198,9 @@ const transaction_historyHandler = async () => {
         },
         body: JSON.stringify({
             type: transaction_type,
-            amount: modal_input.value,
             date: currentDate,
+            amount: modal_input.value,
+            previousAmount: currentBalance,
             userAccountId: loggedInID
         })
     });

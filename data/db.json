@@ -244,13 +244,6 @@
     },
     {
       "type": "deposit",
-      "amount": "800",
-      "date": "\n    12 -\n    22 -\n    2022 \n    (12:\n    06\n    AM)",
-      "userAccountId": 15,
-      "id": 25
-    },
-    {
-      "type": "deposit",
       "amount": "1",
       "date": "\n    12 -\n    22 -\n    2022 \n    (12:\n    46\n    AM)",
       "userAccountId": 9,
@@ -339,6 +332,14 @@
       "date": "\n    12 -\n    22 -\n    2022 \n    (12:\n    46\n    AM)",
       "userAccountId": 9,
       "id": 38
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (9:\n    10\n    AM)",
+      "amount": "3",
+      "previousAmount": 1303,
+      "userAccountId": 15,
+      "id": 39
     }
   ]
 }
