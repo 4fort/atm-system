@@ -128,57 +128,6 @@ section.atm_interface .top {
   align-items: center;
   gap: 50px;
 }
-section.atm_interface .top .atm_card {
-  width: 350px;
-  height: 200px;
-  background: rgb(178, 80, 104);
-  background: linear-gradient(45deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
-  position: relative;
-  border-radius: calc(var(--radius-secondary) + 5px);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
-  transition: 0.8s;
-}
-section.atm_interface .top .atm_card .brand {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-section.atm_interface .top .atm_card .atm_cardNum {
-  position: absolute;
-  top: 75px;
-  left: 20px;
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-section.atm_interface .top .atm_card .atm_cardHolder {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  font-size: 0.7rem;
-  opacity: 0.5;
-  left: 20px;
-  bottom: 30px;
-}
-section.atm_interface .top .atm_card .atm_cardHolder span {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-section.atm_interface .top .atm_card .atm_cardId {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  font-size: 0.7rem;
-  opacity: 0.5;
-  left: 270px;
-  bottom: 30px;
-}
-section.atm_interface .top .atm_card .atm_cardId span {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-section.atm_interface .top .atm_card .atm_cardId span {
-  cursor: pointer;
-}
 section.atm_interface .top .user_balance {
   display: flex;
   flex-direction: column;
@@ -213,6 +162,7 @@ section.atm_interface .bottom .left .transaction_history_title span:last-child {
   text-align: end;
 }
 section.atm_interface .bottom .left .transaction_history {
+  height: 100%;
   background-color: var(--light_black-color);
   display: flex;
   flex-direction: column;
@@ -332,7 +282,7 @@ section.login_interface .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 95%;
   width: 50%;
 }
 section.login_interface .container.left {
@@ -417,6 +367,8 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
   justify-content: space-between;
   width: 300px;
   background-color: var(--dark_gray-color);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .modal .title_bar i {
   cursor: pointer;
@@ -429,6 +381,9 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
   display: flex;
   padding-top: 30px;
   flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
 }
 .modal form input {
   font-size: 2rem;
@@ -453,6 +408,58 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
 .modal form button:hover {
   background: rgb(178, 80, 104);
   background: linear-gradient(180deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
+}
+
+.atm_card {
+  width: 350px;
+  height: 200px;
+  background: rgb(178, 80, 104);
+  background: linear-gradient(45deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
+  position: relative;
+  border-radius: calc(var(--radius-secondary) + 5px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
+  transition: 0.8s;
+}
+.atm_card .brand {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.atm_card .atm_cardNum {
+  position: absolute;
+  top: 75px;
+  left: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.atm_card .atm_cardHolder {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  left: 20px;
+  bottom: 30px;
+}
+.atm_card .atm_cardHolder span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.atm_card .atm_cardId {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  left: 270px;
+  bottom: 30px;
+}
+.atm_card .atm_cardId span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.atm_card .atm_cardId span {
+  cursor: pointer;
 }
 
 .currency::before {

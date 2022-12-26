@@ -10,12 +10,14 @@ const admin_displayAccountsList = async () => {
 
     data.forEach(e => {
         admin_account_list_element.innerHTML += `
-            <div id="${e.id}" class="account_container">
+            <div id="${e.id}" class="account_container" style="height: 10rem;">
                 <div class="account_id">${e.id}</div>
                 <div class="account_name">${e.card.owner}</div>
                 <div>${e.card.num.match(/.{1,3}/g).join('-')}</div>
                 <div>${e.card.pin}</div>
-                <div>${e.qrpin}&nbsp;<a href="#" download><i class="bi bi-download"></i></a></div>
+                <div>${e.qrpin}<br>
+                    <div class="qrcode" style="height: 100px; width: 100px;"></div>
+                </div>
                 <div>
                     <span class="currency">${e.balance}</span>
                 </div>
@@ -26,6 +28,7 @@ const admin_displayAccountsList = async () => {
             </div>
         `
         // console.log(e.card.owner)
+        qrCodeGenerator(e.qrpin);
     });
 
     account_deleteButton = document.querySelectorAll('.account_delete')
@@ -71,8 +74,11 @@ control_panel_form.addEventListener('submit', (e) => {
 
 let isEdit = false;
 let selectedElement;
+let qrdata;
 
 const admin_addAccount = async (owner, amount, pin) => {
+    isEdit ? qrdata = qrdata : qrdata = tokenator();
+
     const res = await fetch(`${api}userAccounts/${isEdit ? selectedElement : ''}`, {
         method: isEdit ? 'PATCH' : 'POST',
         headers: {
@@ -84,11 +90,13 @@ const admin_addAccount = async (owner, amount, pin) => {
                 num: random_card_num,
                 pin: pin
             },
-            qrpin: tokenator(),
+            qrpin: qrdata,
             balance: amount
         })
     });
     const data = await res.json();
+
+    qrCodeGenerator()
 }
 
 let account_deleteButton = ''
@@ -116,6 +124,7 @@ const admin_editAccount = async (e) => {
     control_panel_owner.value = data.card.owner
     control_panel_amount.value = data.balance
     random_card_num = data.card.num
+    qrdata = data.qrdata
     control_panel_pin.value = data.card.pin
 
     random_card_num_element.innerText = random_card_num.match(/.{1,3}/g).join('-')
@@ -140,3 +149,34 @@ const validate_inputs = () => {
     }
     
 }
+
+// import QRCode from 'qrcode'
+// var QRCode = require('qrcode')
+const qrCodeGenerator = (e) => {
+    console.log(QRCode)
+        QRCode.toString(e, function (err, string) {
+    if (err) throw err
+    console.log(string)
+            let canvas = document.querySelectorAll('.qrcode')
+            Array.from(canvas).forEach(e => {
+                e.innerHTML = string;
+            })
+            console.log(canvas)
+    })
+    
+}
+// qrCodeGenerator()
+
+
+
+function printIt() {
+    let win = window.open();
+    self.focus();
+    win.document.open();
+    win.document.write('<'+'html'+'><'+'body'+'>');
+    win.document.write('<'+'div'+'id="container"'+'>'+'<'+'/div'+'>');
+    win.document.write('<'+'/body'+'><'+'/html'+'>');
+    win.document.close();
+    win.print();
+    win.close();
+  }

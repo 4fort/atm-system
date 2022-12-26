@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <style>
+        * {
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .atm_card {
+            transform: scale(3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="atm_card">
+            <div class="brand"><span>FORT</span>BANK</div>
+            <div class="atm_cardNum">########</div>
+            <div class="atm_cardHolder">CARD HOLDER<span id="atm_cardHolder">User</span></div>
+            <div class="atm_cardId">PIN<span id="atm_cardId">****</span></div>
+        </div>
+    </div>
+
+</body>
+</html>

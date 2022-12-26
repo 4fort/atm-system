@@ -147,62 +147,6 @@ section {
             justify-content: center;
             align-items: center;
             gap: 50px;
-
-            .atm_card {
-                width: 350px;
-                height: 200px;
-                background: rgb(178,80,104);
-                background: linear-gradient(45deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
-                position: relative;
-                border-radius: calc(var(--radius-secondary) + 5px);
-                box-shadow: 0px 6px 8px #00000011;
-                transition: .8s;
-        
-                .brand {
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                }
-        
-                .atm_cardNum {
-                    position: absolute;
-                    top: 75px;
-                    left: 20px;
-                    font-size: 1.4rem;
-                    font-weight: 700;
-                }
-        
-                @mixin atm_cardDetails {
-                    display: flex;
-                    flex-direction: column;
-                    position: absolute;
-                    font-size: .7rem;
-                    opacity: .5;
-        
-                    span {
-                        font-size: 1.2rem;
-                        font-weight: 700;
-                    }
-                }
-        
-                .atm_cardHolder {
-                    @include atm_cardDetails();
-        
-                    left: 20px;
-                    bottom: 30px;
-                }
-                
-                .atm_cardId {
-                    @include atm_cardDetails();
-                    
-                    left: 270px;
-                    bottom: 30px;
-
-                    span {
-                        cursor: pointer;
-                    }
-                }
-            }
     
             .user_balance {
                 display: flex;
@@ -252,6 +196,7 @@ section {
                 .transaction_history {
                     @include cellStyle();
 
+                    height: 100%;
                     background-color: var(--light_black-color);
                     display: flex;
                     flex-direction: column;
@@ -397,7 +342,7 @@ section {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            height: 95%;
             width: 50%;
             
     
@@ -502,6 +447,8 @@ section {
         justify-content: space-between;
         width: 300px;
         background-color: var(--dark_gray-color);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
 
         i {
             cursor: pointer;
@@ -516,6 +463,9 @@ section {
         display: flex;
         padding-top: 30px;
         flex-direction: column;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
 
         input {
             font-size: 2rem;
@@ -542,6 +492,62 @@ section {
                 background: rgb(178,80,104);
                 background: linear-gradient(180deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
             }
+        }
+    }
+}
+
+.atm_card {
+    width: 350px;
+    height: 200px;
+    background: rgb(178,80,104);
+    background: linear-gradient(45deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
+    position: relative;
+    border-radius: calc(var(--radius-secondary) + 5px);
+    box-shadow: 0px 6px 8px #00000011;
+    transition: .8s;
+
+    .brand {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .atm_cardNum {
+        position: absolute;
+        top: 75px;
+        left: 20px;
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    @mixin atm_cardDetails {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        font-size: .7rem;
+        opacity: .5;
+
+        span {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+    }
+
+    .atm_cardHolder {
+        @include atm_cardDetails();
+
+        left: 20px;
+        bottom: 30px;
+    }
+    
+    .atm_cardId {
+        @include atm_cardDetails();
+        
+        left: 270px;
+        bottom: 30px;
+
+        span {
+            cursor: pointer;
         }
     }
 }

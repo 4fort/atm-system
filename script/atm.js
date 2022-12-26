@@ -28,7 +28,7 @@ const display_bankData = async () => {
 
     atm_cardNum_Element.innerText = data.card.num.match(/.{1,3}/g).join('-');
     atm_cardHolder_Element.innerText = data.card.owner;
-    let atm_cardPin_showHide = true;
+    let atm_cardPin_showHide = false;
 
     atm_cardId_Element.addEventListener('click', () => {
         console.log(atm_cardPin_showHide)
@@ -83,14 +83,19 @@ const display_bankData = async () => {
     modal_form.addEventListener('submit', (e) => {
         e.preventDefault()
 
-        if(transaction_type === 'deposit'){
-            transaction_deposit(loggedInID, data.balance, modal_input.value)
+        if(modal_input.value <= 0){
+            // DO NOTHING
         }
-        else if(transaction_type === 'withdraw'){
-            transaction_withdraw(loggedInID, data.balance, modal_input.value)
-        }
-        else if(transaction_type === 'transfer'){
-            transaction_transfer(loggedInID, data.balance, modal_input.value)
+        else {
+            if(transaction_type === 'deposit'){
+                transaction_deposit(loggedInID, data.balance, modal_input.value)
+            }
+            else if(transaction_type === 'withdraw'){
+                transaction_withdraw(loggedInID, data.balance, modal_input.value)
+            }
+            else if(transaction_type === 'transfer'){
+                transaction_transfer(loggedInID, data.balance, modal_input.value)
+            }
         }
     })
 
@@ -104,7 +109,7 @@ const display_bankData = async () => {
             <span class="transaction_date hsd">${e.date}</span>
             <span class="transaction_balance">
                 <div class="transaction_previousAmount currency">${e.previousAmount}</div>
-                <div class="transaction_amount currency" style="color:${e.type == 'withdraw' ? 'red' : 'green'};">${e.type == 'withdraw' ? '-' : '+'} ${e.amount}</div>
+                <div class="transaction_amount currency" style="color:${e.type == 'withdraw' ? 'red' : 'green'};">${e.type == 'withdraw' ? '-' : '+'} ${+e.amount}</div>
             </span>
         </div>
         `);
