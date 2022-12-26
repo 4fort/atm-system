@@ -28,8 +28,8 @@ const admin_displayAccountsList = async () => {
             </div>
         `
         // console.log(e.card.owner)
-        qrCodeGenerator(e.qrpin);
     });
+    qrCodeGenerator();
 
     account_deleteButton = document.querySelectorAll('.account_delete')
 }
@@ -152,16 +152,26 @@ const validate_inputs = () => {
 
 // import QRCode from 'qrcode'
 // var QRCode = require('qrcode')
-const qrCodeGenerator = (e) => {
-    console.log(QRCode)
-        QRCode.toString(e, function (err, string) {
-    if (err) throw err
-    console.log(string)
-            let canvas = document.querySelectorAll('.qrcode')
-            Array.from(canvas).forEach(e => {
-                e.innerHTML = string;
+const qrCodeGenerator = async () => {
+    const res = await fetch(`${api}userAccounts`)
+    const data = await res.json()
+
+    let canvas = document.querySelectorAll('.qrcode')
+
+    
+
+    data.forEach(e => {
+        QRCode.toString(e.qrpin, function (err, string) {
+            if (err) throw err
+
+            canvas.forEach(el => {
+                // console.log(el.parentElement.parentElement.id)
+                if(el.parentElement.parentElement.id == e.id) {
+                    el.innerHTML = string;
+                }
             })
-            console.log(canvas)
+            
+        })
     })
     
 }
