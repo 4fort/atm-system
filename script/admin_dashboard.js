@@ -157,9 +157,6 @@ const qrCodeGenerator = async () => {
     const data = await res.json()
 
     let canvas = document.querySelectorAll('.qrcode')
-
-    
-
     data.forEach(e => {
         QRCode.toString(e.qrpin, function (err, string) {
             if (err) throw err
@@ -168,7 +165,11 @@ const qrCodeGenerator = async () => {
                 // console.log(el.parentElement.parentElement.id)
                 if(el.parentElement.parentElement.id == e.id) {
                     el.innerHTML = string;
+                    el.addEventListener('click', e => {
+                        printIt(string);
+                    })
                 }
+
             })
             
         })
@@ -177,14 +178,12 @@ const qrCodeGenerator = async () => {
 }
 // qrCodeGenerator()
 
-
-
-function printIt() {
+function printIt(e) {
     let win = window.open();
     self.focus();
     win.document.open();
     win.document.write('<'+'html'+'><'+'body'+'>');
-    win.document.write('<'+'div'+'id="container"'+'>'+'<'+'/div'+'>');
+    win.document.write(e);
     win.document.write('<'+'/body'+'><'+'/html'+'>');
     win.document.close();
     win.print();
