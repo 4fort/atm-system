@@ -158,7 +158,9 @@ const qrCodeGenerator = async () => {
 
     let canvas = document.querySelectorAll('.qrcode')
     data.forEach(e => {
-        QRCode.toString(e.qrpin, function (err, string) {
+        QRCode.toString(e.qrpin, {
+            margin: 3
+        }, function (err, string) {
             if (err) throw err
 
             canvas.forEach(el => {
@@ -181,11 +183,9 @@ const qrCodeGenerator = async () => {
 function printIt(e) {
     let win = window.open();
     self.focus();
-    win.document.open();
-    win.document.write('<'+'html'+'><'+'body'+'>');
-    win.document.write(e);
-    win.document.write('<'+'/body'+'><'+'/html'+'>');
+    win.document.open('../pages/atm_card.html','','left=200, top=200, width=950, height=500, toolbar=0, resizable=0');
+    // win.document.write(e)
     win.document.close();
     win.print();
     win.close();
-  }
+}

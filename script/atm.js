@@ -114,7 +114,20 @@ const display_bankData = async () => {
         </div>
         `);
     })
-    
+
+
+    let qrcodeCanvas = document.querySelector('.qrcode');
+    QRCode.toString(data.qrpin, {
+        margin: 3
+    }, function (err, string) {
+        if (err) throw err
+
+        qrcodeCanvas.innerHTML = string;
+        qrcodeCanvas.addEventListener('click', e => {
+            printIt(string);
+        })
+        
+    })
 }
 
 if(authenticator()) {
@@ -135,7 +148,7 @@ const transaction_deposit = async (userID, balance, amount) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            balance: totalAmount
+            balance: +totalAmount
         })
     });
 
@@ -161,7 +174,7 @@ const transaction_withdraw = async (userID, balance, amount) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            balance: totalAmount,
+            balance: +totalAmount,
         })
     });
 
@@ -222,4 +235,14 @@ const transaction_historyHandler = async (currentBalance) => {
             userAccountId: loggedInID
         })
     });
+}
+
+function printIt(e) {
+    let win = window.open();
+    self.focus();
+    win.document.open();
+    win.document.write(e)
+    win.document.close();
+    win.print();
+    win.close();
 }

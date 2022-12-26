@@ -51,7 +51,7 @@
         "pin": "1234"
       },
       "qrpin": "57o6t972njl",
-      "balance": "00009",
+      "balance": 1,
       "id": 17
     },
     {
@@ -241,6 +241,22 @@
       "previousAmount": 9006,
       "userAccountId": 9,
       "id": 60
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (12:\n    57\n    AM)",
+      "amount": "1",
+      "previousAmount": 9,
+      "userAccountId": 17,
+      "id": 61
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (12:\n    57\n    AM)",
+      "amount": "9",
+      "previousAmount": 10,
+      "userAccountId": 17,
+      "id": 62
     }
   ]
 }

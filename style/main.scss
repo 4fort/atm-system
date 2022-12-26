@@ -512,9 +512,20 @@ section {
         right: 20px;
     }
 
+    .qrcode {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        height: 65px;
+        width: 65px;
+        border-radius: var(--radius-primary);
+        overflow: hidden;
+        cursor: pointer;
+    }
+
     .atm_cardNum {
         position: absolute;
-        top: 75px;
+        top: 95px;
         left: 20px;
         font-size: 1.4rem;
         font-weight: 700;
