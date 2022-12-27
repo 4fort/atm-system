@@ -110,11 +110,65 @@ const display_bankData = async () => {
             <span class="transaction_balance">
                 <div class="transaction_previousAmount currency">${e.previousAmount}</div>
                 <div class="transaction_amount currency" style="color:${e.type == 'withdraw' ? 'red' : 'green'};">${e.type == 'withdraw' ? '-' : '+'} ${+e.amount}</div>
+                <i class="bi bi-receipt-cutoff printHistory" data-parent=${data.id} id=${e.id}></i>
             </span>
         </div>
         `);
-    })
 
+        let printHistoryBtn = document.querySelectorAll('.printHistory')
+        printHistoryBtn.forEach(el => {
+            console.log(el.id, e.id)
+            if(data.id == el.dataset.parent){
+                el.addEventListener('click', () => {
+                    if(el.id == e.id){
+                        printIt(`
+                        <style>
+                        * {
+                            font-family: monospace;
+                            line-height: 5px;
+                            font-size: 1.3rem;
+                        }
+                        h1 {
+                            font-size: 2.1rem;
+                        }
+                        h1, h5 {
+                            text-align: center;
+                            margin: 20px;
+                        }
+                        span {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                        h4 {
+                            text-transform: Capitalize;
+                        }
+                        </style>
+        
+                        <hr>
+                        <br>
+                        <h1>FORTBANK</h1>
+                        <br>
+                        <hr>
+                        <span><h4>Date:</h4><h4>${e.date}</h4></span>
+                        <span><h4>Customer Name:</h4><h4>${data.card.owner}</h4></span>
+                        <span><h4>Customer Card:</h4><h4>${data.card.num.match(/.{1,3}/g).join('-')}</h4></span>
+                        <span><h4>Account ID:</h4><h4>${data.id}</h4></span>
+                        <span><h4>Transaction:</h4><h4>${e.type}</h4></span>
+                        <hr>
+                        <span><h2>Amount:</h2><h2>₱${e.amount}</h2></span>
+                        <span><h4>Previous Balance:</h4><h4>₱${e.previousAmount}</h4></span>
+                        <span><h4>Total Balance:</h4><h4>₱${e.type == 'withdraw' ? +e.previousAmount - +e.amount : +e.previousAmount + +e.amount}</h4></span>
+                        <span><h4>Current Balance:</h4><h4>₱${data.balance}</h4></span>
+                        <hr>
+                        <h5>THANKS FOR USING MY ATM SYSTEM</h5>
+                        <h5>Sir Please Perfect Akong Score ^_^</h5>
+                        <h5>100/100</h5>
+                    `)
+                    }
+                })
+            }
+        })
+    })
 
     let qrcodeCanvas = document.querySelector('.qrcode');
     QRCode.toString(data.qrpin, {
@@ -129,6 +183,7 @@ const display_bankData = async () => {
         
     })
 }
+
 
 if(authenticator()) {
     display_bankData()
@@ -237,7 +292,7 @@ const transaction_historyHandler = async (currentBalance) => {
     });
 }
 
-function printIt(e) {
+const printIt = (e) => {
     let win = window.open();
     self.focus();
     win.document.open();

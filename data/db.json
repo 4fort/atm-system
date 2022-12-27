@@ -51,17 +51,17 @@
         "pin": "1234"
       },
       "qrpin": "57o6t972njl",
-      "balance": 1,
+      "balance": 1401,
       "id": 17
     },
     {
       "card": {
         "owner": "Johnny Silva",
         "num": "45643118",
-        "pin": "1234"
+        "pin": "4512"
       },
       "qrpin": "vgdsdc328jb",
-      "balance": "0008",
+      "balance": null,
       "id": 18
     }
   ],
@@ -257,6 +257,30 @@
       "previousAmount": 10,
       "userAccountId": 17,
       "id": 62
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (2:\n    21\n    AM)",
+      "amount": "1000",
+      "previousAmount": 1,
+      "userAccountId": 17,
+      "id": 63
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (2:\n    36\n    AM)",
+      "amount": "400",
+      "previousAmount": 1001,
+      "userAccountId": 17,
+      "id": 64
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (9:\n    49\n    AM)",
+      "amount": "200",
+      "previousAmount": 8,
+      "userAccountId": 18,
+      "id": 65
     }
   ]
 }

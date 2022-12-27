@@ -254,6 +254,7 @@ section {
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
+                        align-items: flex-end;
 
                         .transaction_previousAmount {
                             font-weight: 700;
@@ -261,6 +262,11 @@ section {
                         }
                         .transaction_amount {
                             font-weight: 500;
+                        }
+
+                        i {
+                            cursor: pointer;
+                            width: 16px;
                         }
                     }
                 }

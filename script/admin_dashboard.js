@@ -183,8 +183,8 @@ const qrCodeGenerator = async () => {
 function printIt(e) {
     let win = window.open();
     self.focus();
-    win.document.open('../pages/atm_card.html','','left=200, top=200, width=950, height=500, toolbar=0, resizable=0');
-    // win.document.write(e)
+    win.document.open();
+    win.document.write(e)
     win.document.close();
     win.print();
     win.close();

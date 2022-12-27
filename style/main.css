@@ -214,6 +214,7 @@ section.atm_interface .bottom .left .cell .transaction_balance {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
 }
 section.atm_interface .bottom .left .cell .transaction_balance .transaction_previousAmount {
   font-weight: 700;
@@ -221,6 +222,10 @@ section.atm_interface .bottom .left .cell .transaction_balance .transaction_prev
 }
 section.atm_interface .bottom .left .cell .transaction_balance .transaction_amount {
   font-weight: 500;
+}
+section.atm_interface .bottom .left .cell .transaction_balance i {
+  cursor: pointer;
+  width: 16px;
 }
 section.atm_interface .bottom .left .hsc {
   min-height: 60px;
