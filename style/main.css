@@ -253,7 +253,7 @@ section.atm_interface .bottom .right .transaction_action {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
   cursor: pointer;
@@ -270,15 +270,15 @@ section.atm_interface .bottom .right .transaction_action span {
   bottom: -80px;
   transform: rotate(-10deg);
   opacity: 0.3;
-  font-size: 18rem;
+  font-size: 17rem;
   transition: var(--transition-duration);
 }
 section.atm_interface .bottom .right .transaction_action:hover {
-  font-size: 1.45rem;
+  font-size: 1.4rem;
 }
 section.atm_interface .bottom .right .transaction_action:hover > span {
   transform: rotate(-8deg);
-  font-size: 18.5rem;
+  font-size: 17.5rem;
 }
 section.login_interface {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.0666666667);
@@ -413,6 +413,10 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
 .modal form button:hover {
   background: rgb(178, 80, 104);
   background: linear-gradient(180deg, rgb(178, 80, 104) 0%, rgb(119, 67, 96) 100%);
+}
+
+.transactionTransfer form {
+  height: 220px;
 }
 
 .atm_card {

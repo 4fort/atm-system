@@ -61,7 +61,7 @@
         "pin": "4512"
       },
       "qrpin": "vgdsdc328jb",
-      "balance": null,
+      "balance": 41,
       "id": 18
     }
   ],
@@ -281,6 +281,22 @@
       "previousAmount": 8,
       "userAccountId": 18,
       "id": 65
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (10:\n    05\n    AM)",
+      "amount": "1",
+      "previousAmount": 2,
+      "userAccountId": 18,
+      "id": 66
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (10:\n    05\n    AM)",
+      "amount": "40",
+      "previousAmount": 1,
+      "userAccountId": 18,
+      "id": 67
     }
   ]
 }

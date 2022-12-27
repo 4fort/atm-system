@@ -307,7 +307,7 @@ section {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-size: 1.4rem;
+                    font-size: 1.3rem;
                     font-weight: 700;
                     box-shadow: 0px 6px 8px #00000011;
                     cursor: pointer;
@@ -324,14 +324,14 @@ section {
                         bottom: -80px;
                         transform: rotate(-10deg);
                         opacity: .3;
-                        font-size: 18rem;
+                        font-size: 17rem;
                         transition: var(--transition-duration);
                     }
                     &:hover {
-                        font-size: 1.45rem;
+                        font-size: 1.4rem;
                         & > span {
                             transform: rotate(-8deg);
-                            font-size: 18.5rem;
+                            font-size: 17.5rem;
                         }
                     }
                 }
@@ -499,6 +499,12 @@ section {
                 background: linear-gradient(180deg, rgba(178,80,104,1) 0%, rgba(119,67,96,1) 100%);
             }
         }
+    }
+}
+
+.transactionTransfer {
+    form {
+        height: 220px;
     }
 }
 

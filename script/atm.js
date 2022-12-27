@@ -55,6 +55,7 @@ const display_bankData = async () => {
                 modal_element.style.display = 'flex'
                 modal_input_id.style.display = 'none'
                 modal_title.innerText = 'Deposit'
+                modal_element.classList.remove('transactionTransfer')
 
                 transaction_type = el.dataset.transaction
             }
@@ -62,6 +63,7 @@ const display_bankData = async () => {
                 modal_element.style.display = 'flex'
                 modal_input_id.style.display = 'none'
                 modal_title.innerText = 'Withdraw'
+                modal_element.classList.remove('transactionTransfer')
 
                 transaction_type = el.dataset.transaction
             }
@@ -69,8 +71,12 @@ const display_bankData = async () => {
                 modal_element.style.display = 'flex'
                 modal_input_id.style.display = 'block'
                 modal_title.innerText = 'Transfer'
+                modal_element.classList.add('transactionTransfer')
 
                 transaction_type = el.dataset.transaction
+            }
+            else {
+                modal_element.style.display = 'none'
             }
         })
     })
@@ -216,6 +222,7 @@ const transaction_withdraw = async (userID, balance, amount) => {
     let totalAmount;
     if(currentBalance < withdrawAmount) {
         console.log('insuficient balance')
+        totalAmount = currentBalance;
     } 
     else {
         totalAmount = currentBalance - withdrawAmount
