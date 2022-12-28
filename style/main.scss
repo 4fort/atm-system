@@ -10,6 +10,26 @@
        -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+        
+        /* Track */
+    &::-webkit-scrollbar-track {
+        opacity: 0;
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #888;
+    }
+    
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 }
 
 html, body {
@@ -75,7 +95,7 @@ nav {
     height: 60px;
     background-color: var(--dark_gray-color);
     border-radius: 10px;
-    overflow: hidden;
+    // overflow: hidden;
     box-shadow: 0px 6px 8px #00000011;
     z-index: 99;
 
@@ -100,7 +120,6 @@ nav {
         font-weight: 500;
         font-size: .9rem;
         cursor: pointer;
-
         i {
             font-size: 1.2rem;
         }
@@ -142,9 +161,10 @@ section {
         flex-direction: column;
 
         .top {
+            height: 30%;
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: start;
             align-items: center;
             gap: 50px;
     
@@ -154,11 +174,44 @@ section {
     
                 .balance {
                     font-weight: 900;
-                    font-size: 2rem;
+                    font-size: 3.5rem;
         
         
                 }
-            }    
+            }   
+
+            .notifications {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: var(--light_black-color);
+                width: 450px;
+                height: 100%;
+
+                .notifContainer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 5px;
+                    max-height: 80%;
+                    width: 100%;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+
+                    div {
+                        background-color: var(--light_white-color);
+                        width: 93%;
+                        padding: 10px;
+
+                        span {
+                            font-weight: 700;
+                        }
+                        p {
+                            font-size: .9rem;
+                        }
+                    }
+                }
+            }
         }
 
 
@@ -205,26 +258,6 @@ section {
                     border-bottom-left-radius: var(--radius-secondary);
                     border-bottom-right-radius: var(--radius-secondary);
                     overflow-y: scroll;
-
-                    &::-webkit-scrollbar {
-                        width: 6px;
-                    }
-                        
-                        /* Track */
-                    &::-webkit-scrollbar-track {
-                        opacity: 0;
-                    }
-                    
-                    /* Handle */
-                    &::-webkit-scrollbar-thumb {
-                        border-radius: 5px;
-                        background: #888;
-                    }
-                    
-                    /* Handle on hover */
-                    &::-webkit-scrollbar-thumb:hover {
-                        background: #555;
-                    }
                 }
     
                 .cell {

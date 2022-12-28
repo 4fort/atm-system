@@ -1,5 +1,5 @@
+let api = 'http://localhost:3000/'
 let loggedInID = Number(localStorage.getItem('loggedInUser'))
-
 
 let modal_form = document.querySelector('.modal_form')
 let modal_input = document.querySelector('.modal_input')
@@ -32,7 +32,7 @@ const display_bankData = async () => {
 
     atm_cardId_Element.addEventListener('click', () => {
         console.log(atm_cardPin_showHide)
-
+        
         if(atm_cardPin_showHide) {
             atm_cardId_Element.innerText = '****';
             atm_cardPin_showHide = false;
@@ -100,7 +100,7 @@ const display_bankData = async () => {
                 transaction_withdraw(loggedInID, data.balance, modal_input.value)
             }
             else if(transaction_type === 'transfer'){
-                transaction_transfer(loggedInID, data.balance, modal_input.value)
+                transaction_transferHandler(loggedInID, data.balance, modal_input.value)
             }
         }
     })
@@ -115,7 +115,11 @@ const display_bankData = async () => {
             <span class="transaction_date hsd">${e.date}</span>
             <span class="transaction_balance">
                 <div class="transaction_previousAmount currency">${e.previousAmount}</div>
-                <div class="transaction_amount currency" style="color:${e.type == 'withdraw' ? 'red' : 'green'};">${e.type == 'withdraw' ? '-' : '+'} ${+e.amount}</div>
+                <div class="transaction_amount currency" style="color:${
+                    e.type == 'deposit' ? 'green' : 'red'
+                };">${
+                    e.type == 'deposit' ? '+' : '-'
+                } ${+e.amount}</div>
                 <i class="bi bi-receipt-cutoff printHistory" data-parent=${data.id} id=${e.id}></i>
             </span>
         </div>
@@ -242,38 +246,64 @@ const transaction_withdraw = async (userID, balance, amount) => {
 
 }
 
-const transaction_transfer = async (userID, balance, amount) => {
-    let currentBalance = Number(balance);
-    let transferAmount = Number(amount)
-    let totalAmount
-    if(currentBalance < transferAmount) {
-        console.log('insuficient balance')
-    } 
-    else {
-        totalAmount = currentBalance - transferAmount
-    }
-
-    const res = await fetch(`${api}userAccounts/${userID}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            balance: totalAmount,
-        })
-    });
+const transaction_transferHandler = async (userID, balance, amount) => {
+    let transferalNum = modal_input_id.value
+    const res = await fetch(`${api}userAccounts/`)
     const data = await res.json()
 
-    transferFetcher(modal_input_id)
-    
+    transaction_withdraw(userID, balance, amount)
+    data.forEach(e => {
+        if(e.card.num == transferalNum){
+            transaction_deposit(e.id, e.balance, amount)
+            console.log(e)
+        }
+    })
+
 }
 
-const transferFetcher = async (userID) => {
-    const res = await fetch(`${api}userAccounts/${userID}`)
-    const data = await res.json()
+// 45643515
+
+// const transaction_transfer = async (userID, balance, amount) => {
+//     let currentBalance = Number(balance);
+//     let transferAmount = Number(amount)
+//     let totalAmount
+//     if(currentBalance < transferAmount) {
+//         console.log('insuficient balance')
+//         totalAmount = currentBalance;
+//     } 
+//     else {
+//         totalAmount = currentBalance - transferAmount
+//     }
+
+//     const res = await fetch(`${api}userAccounts/${userID}`, {
+//         method: 'PATCH',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             balance: totalAmount,
+//         })
+//     });
+//     const data = await res.json()
+
+//     transferFetcher(modal_input_id, totalAmount)
     
-    console.log(data)
-}
+// }
+
+// const transferFetcher = async (userID, totalAmount) => {
+//     const res = await fetch(`${api}userAccounts/${userID}`, {
+//         method: 'PATCH',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             balance: totalAmount,
+//         })
+//     });
+//     const data = await res.json()
+    
+//     console.log(data)
+// }
 
 const transaction_historyHandler = async (currentBalance) => {
     let currentDate = `

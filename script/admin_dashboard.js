@@ -34,7 +34,8 @@ const admin_displayAccountsList = async () => {
     account_deleteButton = document.querySelectorAll('.account_delete')
 }
 
-if(authenticator()) {
+let SESSION_TOKEN_ADMIN = localStorage.getItem("SESSION_TOKEN_ADMIN")
+if(SESSION_TOKEN_ADMIN) {
     admin_displayAccountsList()
 }
 else {

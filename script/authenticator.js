@@ -1,7 +1,6 @@
 const authenticator = () => {
-    let SESSION_TOKEN_ADMIN = localStorage.getItem("SESSION_TOKEN_ADMIN")
     let SESSION_TOKEN = localStorage.getItem("SESSION_TOKEN")
-    if(SESSION_TOKEN !== null || SESSION_TOKEN_ADMIN !== null){
+    if(SESSION_TOKEN){
         // document.write('AUTHORIZED')
         return true
     }
