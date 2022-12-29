@@ -23,7 +23,7 @@ const display_bankData = async () => {
     user_element.forEach(e => {
         e.innerHTML = data.card.owner;
     }) 
-    balance_element.innerText = data.balance.toLocaleString('en-US')
+    balance_element.innerText = Number(data.balance).toLocaleString('en-US')
 
     // CARD DISPLAY
     let atm_cardNum_Element = document.querySelector('.atm_cardNum');
@@ -124,10 +124,10 @@ const display_bankData = async () => {
             <span class="transaction_balance">
                 <div class="transaction_previousAmount currency">${e.previousAmount.toLocaleString('en-US')}</div>
                 <div class="transaction_amount currency" style="color:${
-                    e.type == 'deposit' ? 'green' : e.isReceiver ? 'green' : 'red'
+                    e.type == 'deposit' ? 'green' : e.transfer.isReceiver ? 'green' : 'red'
                 };">${
-                    e.type == 'deposit' ? '+' : e.isReceiver ? '+' : '-' 
-                } ${+e.amount}</div>
+                    e.type == 'deposit' ? '+' : e.transfer.isReceiver ? '+' : '-' 
+                } ${Number(e.amount).toLocaleString('en-US')}</div>
                 <i class="bi bi-receipt-cutoff printHistory" data-parent=${data.id} id=${e.id}></i>
             </span>
         </div>
@@ -144,7 +144,7 @@ const display_bankData = async () => {
                         * {
                             font-family: monospace;
                             line-height: 5px;
-                            font-size: 1.3rem;
+                            font-size: 1.25rem;
                         }
                         h1 {
                             font-size: 2.1rem;
@@ -180,8 +180,8 @@ const display_bankData = async () => {
                         <hr>
                         <span><h2>Amount:</h2><h2>₱${e.amount}</h2></span>
                         <span><h4>Previous Balance:</h4><h4>₱${e.previousAmount.toLocaleString('en-US')}</h4></span>
-                        <span><h4>Total Balance:</h4><h4>₱${e.type == 'withdraw' ? +e.previousAmount - +e.amount : +e.previousAmount + +e.amount}</h4></span>
-                        <span><h4>Current Balance:</h4><h4>₱${data.balance.toLocaleString('en-US')}</h4></span>
+                        <span><h4>Total Balance:</h4><h4>₱${e.type == 'withdraw' ? (+e.previousAmount - +e.amount).toLocaleString('en-US') : (+e.previousAmount + +e.amount).toLocaleString('en-US')}</h4></span>
+                        <span><h4>Current Balance:</h4><h4>₱${Number(data.balance).toLocaleString('en-US')}</h4></span>
                         <hr>
                         <h5>THANKS FOR USING MY ATM SYSTEM</h5>
                         <h5>Sir Please Perfect Akong Score ^_^</h5>
@@ -244,6 +244,23 @@ const transaction_withdraw = async (userID, balance, amount) => {
     let withdrawAmount = Number(amount)
     let totalAmount;
 
+    if(currentBalance < withdrawAmount) {
+        console.log('insuficient balance')
+        totalAmount = currentBalance;
+    } 
+    else {
+        totalAmount = currentBalance - withdrawAmount
+
+        
+        let transfer = {
+            isReceiver: false,
+            cardSender: currentLoggedInCardNum,
+            cardReceiver: modal_input_id.value
+        }
+
+        await transaction_historyHandler(currentBalance, userID, transfer)
+    }
+
     const res = await fetch(`${api}userAccounts/${userID}`, {
         method: 'PATCH',
         headers: {
@@ -253,23 +270,6 @@ const transaction_withdraw = async (userID, balance, amount) => {
             balance: +totalAmount,
         })
     });
-    const data = await res.json();
-
-    let transfer = {
-        isReceiver: false,
-        cardSender: data.card.num,
-        cardReceiver: modal_input_id.value
-    }
-
-    if(currentBalance < withdrawAmount) {
-        console.log('insuficient balance')
-        totalAmount = currentBalance;
-    } 
-    else {
-        totalAmount = currentBalance - withdrawAmount
-
-        await transaction_historyHandler(currentBalance, userID, transfer)
-    }
 
 }
 
@@ -278,15 +278,21 @@ const transaction_transferHandler = async (userID, balance, amount) => {
     const res = await fetch(`${api}userAccounts/`)
     const data = await res.json()
 
-    // await transaction_withdraw(userID, balance, amount)
-    console.log(userID, balance, amount)
-    await data.forEach(e => {
-        if(e.card.num == transferalNum){
-            console.log(transferalNum, e.card.num)
-            // transaction_deposit(e.id, e.balance, amount)
-            console.log(e.id, e.balance, amount)
+    await data.forEach( async (e) => {
+        if(transferalNum == e.card.num) {
+            await transaction_withdraw(userID, balance, amount)
+
+            await transaction_deposit(e.id, e.balance, amount)
         }
     })
+    // console.log(userID, balance, amount)
+    // await data.forEach(e => {
+    //     if(e.card.num == transferalNum){
+    //         console.log(transferalNum, e.card.num)
+    //         console.log(e.id, e.balance, amount)
+    //     }
+    // })
+
 
 }
 

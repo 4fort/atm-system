@@ -1,0 +1,546 @@
+{
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (9:\n    10\n    AM)",
+      "amount": "3",
+      "previousAmount": 1303,
+      "userAccountId": 15,
+      "id": 39
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (9:\n    23\n    AM)",
+      "amount": "50",
+      "previousAmount": 1300,
+      "userAccountId": 15,
+      "id": 40
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (9:\n    54\n    AM)",
+      "amount": "1",
+      "previousAmount": 1350,
+      "userAccountId": 15,
+      "id": 41
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (10:\n    41\n    AM)",
+      "amount": "1",
+      "previousAmount": 1349,
+      "userAccountId": 15,
+      "id": 42
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (10:\n    41\n    AM)",
+      "amount": "100",
+      "previousAmount": 1348,
+      "userAccountId": 15,
+      "id": 43
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (10:\n    45\n    AM)",
+      "amount": "48",
+      "previousAmount": 1448,
+      "userAccountId": 15,
+      "id": 44
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (11:\n    26\n    AM)",
+      "amount": "96",
+      "previousAmount": 1496,
+      "userAccountId": 15,
+      "id": 45
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (11:\n    26\n    AM)",
+      "amount": "92",
+      "previousAmount": 1592,
+      "userAccountId": 15,
+      "id": 46
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (12:\n    19\n    PM)",
+      "amount": "1",
+      "previousAmount": 9500,
+      "userAccountId": 9,
+      "id": 47
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (12:\n    24\n    PM)",
+      "amount": "9",
+      "previousAmount": 1009,
+      "userAccountId": 10,
+      "id": 48
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (12:\n    27\n    PM)",
+      "amount": "600",
+      "previousAmount": 1500,
+      "userAccountId": 15,
+      "id": 49
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (1:\n    19\n    PM)",
+      "amount": "15",
+      "previousAmount": 2100,
+      "userAccountId": 15,
+      "id": 50
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (6:\n    56\n    PM)",
+      "amount": "0000",
+      "previousAmount": 2115,
+      "userAccountId": 15,
+      "id": 51
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (6:\n    57\n    PM)",
+      "amount": "0000",
+      "previousAmount": 2115,
+      "userAccountId": 15,
+      "id": 52
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (7:\n    00\n    PM)",
+      "amount": "1",
+      "previousAmount": 2115,
+      "userAccountId": 15,
+      "id": 53
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (7:\n    06\n    PM)",
+      "amount": "116",
+      "previousAmount": 2116,
+      "userAccountId": 15,
+      "id": 54
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (7:\n    18\n    PM)",
+      "amount": "011",
+      "previousAmount": 9501,
+      "userAccountId": 9,
+      "id": 55
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (7:\n    23\n    PM)",
+      "amount": "00012",
+      "previousAmount": 9512,
+      "userAccountId": 9,
+      "id": 56
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (11:\n    03\n    PM)",
+      "amount": "6",
+      "previousAmount": 9500,
+      "userAccountId": 9,
+      "id": 57
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (11:\n    04\n    PM)",
+      "amount": "500",
+      "previousAmount": 9506,
+      "userAccountId": 9,
+      "id": 58
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    22 -\n    2022 \n    (11:\n    08\n    PM)",
+      "amount": "143",
+      "previousAmount": 1000,
+      "userAccountId": 10,
+      "id": 59
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    24 -\n    2022 \n    (10:\n    57\n    AM)",
+      "amount": "4",
+      "previousAmount": 9006,
+      "userAccountId": 9,
+      "id": 60
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (12:\n    57\n    AM)",
+      "amount": "1",
+      "previousAmount": 9,
+      "userAccountId": 17,
+      "id": 61
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (12:\n    57\n    AM)",
+      "amount": "9",
+      "previousAmount": 10,
+      "userAccountId": 17,
+      "id": 62
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (2:\n    21\n    AM)",
+      "amount": "1000",
+      "previousAmount": 1,
+      "userAccountId": 17,
+      "id": 63
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (2:\n    36\n    AM)",
+      "amount": "400",
+      "previousAmount": 1001,
+      "userAccountId": 17,
+      "id": 64
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (10:\n    05\n    AM)",
+      "amount": "1",
+      "previousAmount": 2,
+      "userAccountId": 18,
+      "id": 66
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (10:\n    05\n    AM)",
+      "amount": "40",
+      "previousAmount": 1,
+      "userAccountId": 18,
+      "id": 67
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (11:\n    11\n    PM)",
+      "amount": "500",
+      "previousAmount": 41,
+      "userAccountId": 18,
+      "id": 68
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (11:\n    29\n    PM)",
+      "amount": "500",
+      "previousAmount": 541,
+      "userAccountId": 18,
+      "id": 69
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (11:\n    40\n    PM)",
+      "amount": "4",
+      "previousAmount": 41,
+      "userAccountId": 18,
+      "id": 70
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (11:\n    40\n    PM)",
+      "amount": "8",
+      "previousAmount": 37,
+      "userAccountId": 18,
+      "id": 71
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    27 -\n    2022 \n    (11:\n    56\n    PM)",
+      "amount": "1000",
+      "previousAmount": 900,
+      "userAccountId": 19,
+      "id": 72
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (1:\n    38\n    AM)",
+      "amount": "399",
+      "previousAmount": 1401,
+      "userAccountId": 17,
+      "id": 73
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (1:\n    39\n    AM)",
+      "amount": "93",
+      "previousAmount": 1002,
+      "userAccountId": 17,
+      "id": 74
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (1:\n    40\n    AM)",
+      "amount": "5",
+      "previousAmount": 1095,
+      "userAccountId": 17,
+      "id": 75
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (2:\n    35\n    PM)",
+      "amount": "10000",
+      "previousAmount": 9010,
+      "userAccountId": 9,
+      "id": 76
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (2:\n    35\n    PM)",
+      "amount": "10000",
+      "previousAmount": 19010,
+      "userAccountId": 9,
+      "id": 77
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (2:\n    35\n    PM)",
+      "amount": "100000",
+      "previousAmount": 29010,
+      "userAccountId": 9,
+      "id": 78
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (3:\n    48\n    PM)",
+      "amount": "10000000",
+      "previousAmount": 129010,
+      "userAccountId": 9,
+      "id": 79
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (3:\n    48\n    PM)",
+      "amount": "465",
+      "previousAmount": 10129010,
+      "userAccountId": 9,
+      "id": 80
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (3:\n    49\n    PM)",
+      "amount": "300000",
+      "previousAmount": 10128545,
+      "userAccountId": 9,
+      "id": 81
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (3:\n    49\n    PM)",
+      "amount": "300000",
+      "previousAmount": 10128545,
+      "userAccountId": 9,
+      "id": 82
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (3:\n    49\n    PM)",
+      "amount": "1000000",
+      "previousAmount": 10428545,
+      "userAccountId": 9,
+      "id": 83
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (4:\n    06\n    PM)",
+      "amount": "1",
+      "previousAmount": 11428542,
+      "userAccountId": 9,
+      "id": 84
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (4:\n    15\n    PM)",
+      "amount": "1",
+      "previousAmount": 11428541,
+      "userAccountId": 9,
+      "id": 85
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (4:\n    25\n    PM)",
+      "amount": "500",
+      "previousAmount": 11428540,
+      "userAccountId": 9,
+      "id": 86
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (4:\n    33\n    PM)",
+      "amount": "40",
+      "previousAmount": 11428040,
+      "userAccountId": 9,
+      "id": 87
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (4:\n    52\n    PM)",
+      "amount": "9",
+      "previousAmount": 11428000,
+      "userAccountId": 9,
+      "id": 90
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (5:\n    01\n    PM)",
+      "amount": "1",
+      "previousAmount": 11427991,
+      "userAccountId": 9,
+      "id": 92
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (5:\n    27\n    PM)",
+      "amount": "1",
+      "previousAmount": 11427990,
+      "userAccountId": 9,
+      "id": 93
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    28 -\n    2022 \n    (5:\n    39\n    PM)",
+      "amount": "89",
+      "previousAmount": 11427989,
+      "userAccountId": 9,
+      "id": 94
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (2:\n    18\n    PM)",
+      "amount": "1000",
+      "previousAmount": 31000,
+      "userAccountId": 15,
+      "transfer": {
+        "isReceiver": false,
+        "cardReceiver": "456420",
+        "cardSender": 15
+      },
+      "id": 106
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (2:\n    18\n    PM)",
+      "amount": "1000",
+      "previousAmount": 11401000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": true,
+        "cardReceiver": "456420",
+        "cardSender": 9
+      },
+      "id": 107
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (2:\n    27\n    PM)",
+      "amount": "2000",
+      "previousAmount": 11402000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": false,
+        "cardReceiver": "456420",
+        "cardSender": "45643515"
+      },
+      "id": 108
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (2:\n    27\n    PM)",
+      "amount": "2000",
+      "previousAmount": 30000,
+      "userAccountId": 15,
+      "transfer": {
+        "isReceiver": true,
+        "cardReceiver": "45643515",
+        "cardSender": "45643515"
+      },
+      "id": 109
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (2:\n    31\n    PM)",
+      "amount": "5000",
+      "previousAmount": 11400000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": true,
+        "cardReceiver": "",
+        "cardSender": 9
+      },
+      "id": 110
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (2:\n    33\n    PM)",
+      "amount": "5000",
+      "previousAmount": 11405000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": false,
+        "cardReceiver": "456420",
+        "cardSender": "45643515"
+      },
+      "id": 111
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (2:\n    47\n    PM)",
+      "amount": "5000",
+      "previousAmount": 11405000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": false,
+        "cardReceiver": "456420",
+        "cardSender": "45645315"
+      },
+      "id": 112
+    },
+    {
+      "type": "deposit",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (3:\n    17\n    PM)",
+      "amount": "3000",
+      "previousAmount": 11405000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": true,
+        "cardReceiver": "",
+        "cardSender": "456420"
+      },
+      "id": 113
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (3:\n    34\n    PM)",
+      "amount": "8000",
+      "previousAmount": 11408000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": false,
+        "cardSender": "456420",
+        "cardReceiver": "45643515"
+      },
+      "id": 114
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (3:\n    34\n    PM)",
+      "amount": "8000",
+      "previousAmount": 37000,
+      "userAccountId": 15,
+      "transfer": {
+        "isReceiver": true,
+        "cardReceiver": "45643515",
+        "cardSender": "456420"
+      },
+      "id": 115
+    }
