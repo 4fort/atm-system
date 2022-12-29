@@ -5,11 +5,15 @@ let modal_form = document.querySelector('.modal_form')
 let modal_input = document.querySelector('.modal_input')
 let modal_input_id = document.querySelector('.modal_input_id')
 let transaction_type;
+let currentLoggedInCardNum;
 
 
 const display_bankData = async () => {
     const res = await fetch(`${api}userAccounts/${loggedInID}?_embed=history`)
     const data = await res.json()
+
+    
+    currentLoggedInCardNum = data.card.num;
 
     console.log(data)
     let user_element = document.querySelectorAll('.user')
@@ -109,16 +113,20 @@ const display_bankData = async () => {
     let transaction_history = document.querySelector('.transaction_history');
 
     Array.from(data.history).forEach((e) => {
+        let transfer_isAdd;
+        if(e.previousAmount > data.balance) {
+            transfer_isAdd = '+'
+        }
         transaction_history.insertAdjacentHTML("afterbegin", `
         <div class="cell hsc">
             <span class="transaction_type">${e.type}</span>
             <span class="transaction_date hsd">${e.date}</span>
             <span class="transaction_balance">
-                <div class="transaction_previousAmount currency">${e.previousAmount}</div>
+                <div class="transaction_previousAmount currency">${e.previousAmount.toLocaleString('en-US')}</div>
                 <div class="transaction_amount currency" style="color:${
-                    e.type == 'deposit' ? 'green' : 'red'
+                    e.type == 'deposit' ? 'green' : e.isReceiver ? 'green' : 'red'
                 };">${
-                    e.type == 'deposit' ? '+' : '-'
+                    e.type == 'deposit' ? '+' : e.isReceiver ? '+' : '-' 
                 } ${+e.amount}</div>
                 <i class="bi bi-receipt-cutoff printHistory" data-parent=${data.id} id=${e.id}></i>
             </span>
@@ -162,13 +170,18 @@ const display_bankData = async () => {
                         <span><h4>Date:</h4><h4>${e.date}</h4></span>
                         <span><h4>Customer Name:</h4><h4>${data.card.owner}</h4></span>
                         <span><h4>Customer Card:</h4><h4>${data.card.num.match(/.{1,3}/g).join('-')}</h4></span>
+                        ${e.type === 'transfer' ? `
+                        <span>
+                            <h4>${e.transfer.isReceiver ? 'Sender' : 'Receiver'} Card:</h4>
+                            <h4>${e.transfer.isReceiver ? e.transfer.cardSender.match(/.{1,3}/g).join('-') : e.transfer.cardReceiver.match(/.{1,3}/g).join('-')}</h4></span>
+                        ` : ``}
                         <span><h4>Account ID:</h4><h4>${data.id}</h4></span>
                         <span><h4>Transaction:</h4><h4>${e.type}</h4></span>
                         <hr>
                         <span><h2>Amount:</h2><h2>₱${e.amount}</h2></span>
-                        <span><h4>Previous Balance:</h4><h4>₱${e.previousAmount}</h4></span>
+                        <span><h4>Previous Balance:</h4><h4>₱${e.previousAmount.toLocaleString('en-US')}</h4></span>
                         <span><h4>Total Balance:</h4><h4>₱${e.type == 'withdraw' ? +e.previousAmount - +e.amount : +e.previousAmount + +e.amount}</h4></span>
-                        <span><h4>Current Balance:</h4><h4>₱${data.balance}</h4></span>
+                        <span><h4>Current Balance:</h4><h4>₱${data.balance.toLocaleString('en-US')}</h4></span>
                         <hr>
                         <h5>THANKS FOR USING MY ATM SYSTEM</h5>
                         <h5>Sir Please Perfect Akong Score ^_^</h5>
@@ -217,22 +230,19 @@ const transaction_deposit = async (userID, balance, amount) => {
         })
     });
 
-    await transaction_historyHandler(currentBalance);
+    let transfer = {
+        isReceiver: true,
+        cardReceiver: modal_input_id.value,
+        cardSender: currentLoggedInCardNum
+    }
+
+    await transaction_historyHandler(currentBalance, userID, transfer);
 }
 
 const transaction_withdraw = async (userID, balance, amount) => {
     let currentBalance = Number(balance);
     let withdrawAmount = Number(amount)
     let totalAmount;
-    if(currentBalance < withdrawAmount) {
-        console.log('insuficient balance')
-        totalAmount = currentBalance;
-    } 
-    else {
-        totalAmount = currentBalance - withdrawAmount
-
-        await transaction_historyHandler(currentBalance)
-    }
 
     const res = await fetch(`${api}userAccounts/${userID}`, {
         method: 'PATCH',
@@ -243,6 +253,23 @@ const transaction_withdraw = async (userID, balance, amount) => {
             balance: +totalAmount,
         })
     });
+    const data = await res.json();
+
+    let transfer = {
+        isReceiver: false,
+        cardSender: data.card.num,
+        cardReceiver: modal_input_id.value
+    }
+
+    if(currentBalance < withdrawAmount) {
+        console.log('insuficient balance')
+        totalAmount = currentBalance;
+    } 
+    else {
+        totalAmount = currentBalance - withdrawAmount
+
+        await transaction_historyHandler(currentBalance, userID, transfer)
+    }
 
 }
 
@@ -251,61 +278,22 @@ const transaction_transferHandler = async (userID, balance, amount) => {
     const res = await fetch(`${api}userAccounts/`)
     const data = await res.json()
 
-    transaction_withdraw(userID, balance, amount)
-    data.forEach(e => {
+    // await transaction_withdraw(userID, balance, amount)
+    console.log(userID, balance, amount)
+    await data.forEach(e => {
         if(e.card.num == transferalNum){
-            transaction_deposit(e.id, e.balance, amount)
-            console.log(e)
+            console.log(transferalNum, e.card.num)
+            // transaction_deposit(e.id, e.balance, amount)
+            console.log(e.id, e.balance, amount)
         }
     })
 
 }
 
 // 45643515
+// 456420
 
-// const transaction_transfer = async (userID, balance, amount) => {
-//     let currentBalance = Number(balance);
-//     let transferAmount = Number(amount)
-//     let totalAmount
-//     if(currentBalance < transferAmount) {
-//         console.log('insuficient balance')
-//         totalAmount = currentBalance;
-//     } 
-//     else {
-//         totalAmount = currentBalance - transferAmount
-//     }
-
-//     const res = await fetch(`${api}userAccounts/${userID}`, {
-//         method: 'PATCH',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             balance: totalAmount,
-//         })
-//     });
-//     const data = await res.json()
-
-//     transferFetcher(modal_input_id, totalAmount)
-    
-// }
-
-// const transferFetcher = async (userID, totalAmount) => {
-//     const res = await fetch(`${api}userAccounts/${userID}`, {
-//         method: 'PATCH',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             balance: totalAmount,
-//         })
-//     });
-//     const data = await res.json()
-    
-//     console.log(data)
-// }
-
-const transaction_historyHandler = async (currentBalance) => {
+const transaction_historyHandler = async (currentBalance, userID, transfer) => {
     let currentDate = `
     ${new Date().getMonth() + 1} -
     ${new Date().getDate()} -
@@ -313,6 +301,7 @@ const transaction_historyHandler = async (currentBalance) => {
     (${new Date().getHours() > 12 ? new Date().getHours() - 12 : new Date().getHours() === 00 ? 12 : new Date().getHours()}:
     ${new Date().getMinutes() < 10 ? "0" + new Date().getMinutes() : new Date().getMinutes()}
     ${new Date().getHours() >= 12  ? 'PM' : 'AM'})`
+
 
     const res = await fetch(`${api}history`, {
         method: 'POST',
@@ -324,7 +313,8 @@ const transaction_historyHandler = async (currentBalance) => {
             date: currentDate,
             amount: modal_input.value,
             previousAmount: currentBalance,
-            userAccountId: loggedInID
+            userAccountId: userID,
+            transfer
         })
     });
 }
