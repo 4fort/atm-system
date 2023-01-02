@@ -29,21 +29,33 @@ const display_bankData = async () => {
     let atm_cardNum_Element = document.querySelector('.atm_cardNum');
     let atm_cardHolder_Element = document.querySelector('#atm_cardHolder');
     let atm_cardId_Element = document.querySelector('#atm_cardId');
+    let atm_cardEditPIN_Element = document.querySelector('#atm_cardEditPIN')
 
     atm_cardNum_Element.innerText = data.card.num.match(/.{1,3}/g).join('-');
     atm_cardHolder_Element.innerText = data.card.owner;
     let atm_cardPin_showHide = false;
+    let atm_cardEditPIN_isEdit = false;
 
     atm_cardId_Element.addEventListener('click', () => {
         console.log(atm_cardPin_showHide)
-        
-        if(atm_cardPin_showHide) {
-            atm_cardId_Element.innerText = '****';
-            atm_cardPin_showHide = false;
+            if(atm_cardPin_showHide && !atm_cardEditPIN_isEdit) {
+                atm_cardId_Element.innerText = '****';
+                atm_cardPin_showHide = false;
+            }
+            else {
+                atm_cardId_Element.innerText = data.card.pin;
+                atm_cardPin_showHide = true;
+            }
+    })
+
+    atm_cardEditPIN_Element.addEventListener('click', () => {
+        if(atm_cardEditPIN_isEdit) {
+            atm_cardEditPIN_isEdit = false;
+            atm_cardId_Element.innerHTML = '<input>'
         }
         else {
-            atm_cardId_Element.innerText = data.card.pin;
-            atm_cardPin_showHide = true;
+            atm_cardEditPIN_isEdit = true;
+            atm_cardId_Element.innerHTML = data.card.pin
         }
     })
 
@@ -178,9 +190,10 @@ const display_bankData = async () => {
                         <span><h4>Account ID:</h4><h4>${data.id}</h4></span>
                         <span><h4>Transaction:</h4><h4>${e.type}</h4></span>
                         <hr>
-                        <span><h2>Amount:</h2><h2>₱${e.amount}</h2></span>
+                        <span><h2>Amount:</h2><h2>₱${Number(e.amount).toLocaleString('en-US')}</h2></span>
                         <span><h4>Previous Balance:</h4><h4>₱${e.previousAmount.toLocaleString('en-US')}</h4></span>
-                        <span><h4>Total Balance:</h4><h4>₱${e.type == 'withdraw' ? (+e.previousAmount - +e.amount).toLocaleString('en-US') : (+e.previousAmount + +e.amount).toLocaleString('en-US')}</h4></span>
+                        <span><h4>Total Balance:</h4><h4>₱${e.type == 'deposit' ? (+e.previousAmount + +e.amount).toLocaleString('en-US') : e.transfer.isReceiver ? (+e.previousAmount + +e.amount).toLocaleString('en-US') : (+e.previousAmount - +e.amount).toLocaleString('en-US')}</h4></span>
+                        <hr>
                         <span><h4>Current Balance:</h4><h4>₱${Number(data.balance).toLocaleString('en-US')}</h4></span>
                         <hr>
                         <h5>THANKS FOR USING MY ATM SYSTEM</h5>

@@ -474,10 +474,11 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
   cursor: pointer;
 }
 .atm_card .atm_cardNum {
+  font-family: "Courier New", Courier, monospace;
   position: absolute;
   top: 95px;
   left: 20px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 .atm_card .atm_cardHolder {
@@ -493,6 +494,11 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
   font-size: 1.2rem;
   font-weight: 700;
 }
+.atm_card .atm_cardHolder span input {
+  width: 50px;
+  padding: 2px;
+  margin: 0;
+}
 .atm_card .atm_cardId {
   display: flex;
   flex-direction: column;
@@ -506,8 +512,16 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
   font-size: 1.2rem;
   font-weight: 700;
 }
+.atm_card .atm_cardId span input {
+  width: 50px;
+  padding: 2px;
+  margin: 0;
+}
 .atm_card .atm_cardId span {
   cursor: pointer;
+}
+.atm_card .atm_cardId i {
+  font-size: 0.9rem;
 }
 
 .currency::before {

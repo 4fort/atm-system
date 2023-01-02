@@ -12,7 +12,7 @@
       },
       "qrpin": "12132003fort",
       "id": 9,
-      "balance": 11005000
+      "balance": 9900000
     },
     {
       "card": {
@@ -31,7 +31,7 @@
         "pin": "1234"
       },
       "qrpin": "sdasd9hmm7",
-      "balance": 510000,
+      "balance": 615000,
       "id": 15
     },
     {
@@ -205,6 +205,71 @@
         "cardSender": "45643515"
       },
       "id": 10
+    },
+    {
+      "type": "withdraw",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (6:\n    51\n    PM)",
+      "amount": "1000000",
+      "previousAmount": 11005000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": false,
+        "cardSender": "456420",
+        "cardReceiver": ""
+      },
+      "id": 11
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (9:\n    21\n    PM)",
+      "amount": "75000",
+      "previousAmount": 10005000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": false,
+        "cardSender": "456420",
+        "cardReceiver": "45643515"
+      },
+      "id": 12
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    29 -\n    2022 \n    (9:\n    21\n    PM)",
+      "amount": "75000",
+      "previousAmount": 510000,
+      "userAccountId": 15,
+      "transfer": {
+        "isReceiver": true,
+        "cardReceiver": "45643515",
+        "cardSender": "456420"
+      },
+      "id": 13
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    31 -\n    2022 \n    (10:\n    40\n    AM)",
+      "amount": "30000",
+      "previousAmount": 9930000,
+      "userAccountId": 9,
+      "transfer": {
+        "isReceiver": false,
+        "cardSender": "456420",
+        "cardReceiver": "45643515"
+      },
+      "id": 14
+    },
+    {
+      "type": "transfer",
+      "date": "\n    12 -\n    31 -\n    2022 \n    (10:\n    40\n    AM)",
+      "amount": "30000",
+      "previousAmount": 585000,
+      "userAccountId": 15,
+      "transfer": {
+        "isReceiver": true,
+        "cardReceiver": "45643515",
+        "cardSender": "456420"
+      },
+      "id": 15
     }
   ]
 }

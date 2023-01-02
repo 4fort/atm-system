@@ -569,10 +569,11 @@ section {
     }
 
     .atm_cardNum {
+        font-family: 'Courier New', Courier, monospace;
         position: absolute;
         top: 95px;
         left: 20px;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 700;
     }
 
@@ -586,6 +587,13 @@ section {
         span {
             font-size: 1.2rem;
             font-weight: 700;
+
+            input {
+                width: 50px;
+                // font-size: .8rem;
+                padding: 2px;
+                margin: 0;
+            }
         }
     }
 
@@ -604,6 +612,9 @@ section {
 
         span {
             cursor: pointer;
+        }
+        i {
+            font-size: .9rem;
         }
     }
 }
