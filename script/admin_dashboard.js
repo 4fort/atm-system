@@ -14,7 +14,10 @@ const admin_displayAccountsList = async () => {
                 <div class="account_id">${e.id}</div>
                 <div class="account_name">${e.card.owner}</div>
                 <div>${e.card.num.match(/.{1,3}/g).join('-')}</div>
-                <div>${e.card.pin}</div>
+                <div>
+                    ${e.card.pin}
+                    <span><i class="bi bi-arrow-counterclockwise"></i></span>
+                </div>
                 <div>${e.qrpin}<br>
                     <div class="qrcode" style="height: 100px; width: 100px;"></div>
                 </div>

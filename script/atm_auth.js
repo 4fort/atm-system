@@ -15,43 +15,46 @@ const user_login = async (el) => {
     // console.log(data[0])
 
     data.forEach(e => {
-        // console.log(e.card.num == atm_card_numInput)
-        if(atm_card_numInput.value === e.card.num || el === e.qrpin) {
-            atm_card_numInput.style.outline = 'none'
-
-            if(atm_card_pinInput.value === e.card.pin || atm_qr_card_pinInput.value === e.card.pin){
-                error_message.innerHTML = 'logged in'
-
-                atm_card_numInput.style.outline = 'none'
-                atm_card_pinInput.style.outline = 'none'
-                atm_qr_card_pinInput.style.outline = 'none'
-                console.log('it works')
-                
-                login('user', e)
-            }
-            else {
-                atm_card_pinInput.style.outline = 'solid 3px red'
-                atm_qr_card_pinInput.style.outline = 'solid 3px red'
-                error_message.innerHTML = 'wrong pin'
-                console.log('wrong password')
-            }
+        if (!atm_card_numInput.value && !atm_card_pinInput.value) {
+            atm_card_numInput.style.outline = 'solid 3px red'
+            atm_card_pinInput.style.outline = 'solid 3px red'
+            error_message.innerText = 'Please input fields!'
         }
-        else {
-            atm_card_numInput.style.outline = 'solid 3px red';
-            error_message.innerHTML = 'wrong credentials'
-            console.log('wrong number')
+        else if(atm_card_pinInput.value != e.card.pin) {
+            atm_card_pinInput.style.outline = 'solid 3px red'
+            console.log('wrong pin')
+        }
+        else if(atm_card_numInput.value === e.card.num && atm_card_pinInput.value === e.card.pin) {
+            atm_card_numInput.style.outline = 'none'
+            atm_card_pinInput.style.outline = 'none'
+            error_message.innerText = 'Logged in'
+
+            login('user', e)
         }
 
         
     });
+}
 
-    
+const qr_user_login = async (qr) => {
+    const res = await fetch(`${api}userAccounts`)
+    const data = await res.json()
+
+    data.forEach( e => {
+        if (qr === e.qrpin && atm_qr_card_pinInput.value === e.card.pin) {
+            login('user', e)
+        }
+        else if(atm_qr_card_pinInput.value != e.card.pin) {
+            atm_qr_card_pinInput.style.outline = 'solid 3px red'
+        }
+    })
 }
 
 atm_form.addEventListener('input', () => {
-    if(atm_card_numInput.value != null){
+    error_message.innerText = ''
+    if(atm_card_numInput.value){
         atm_card_numInput.style.outline = 'none'
-        if(atm_card_pinInput.value != null){
+        if(atm_card_pinInput.value){
             atm_card_pinInput.style.outline = 'none'
         }
     }

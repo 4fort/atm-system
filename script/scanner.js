@@ -2,7 +2,7 @@ function onScanSuccess(decodedText, decodedResult) {
   // handle the scanned code as you like, for example:
   console.log(`Code matched = ${decodedText}`, decodedResult);
 
-  user_login(decodedText)
+  qr_user_login(decodedText)
 }
 
 function onScanFailure(error) {

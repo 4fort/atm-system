@@ -478,7 +478,7 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
   position: absolute;
   top: 95px;
   left: 20px;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 .atm_card .atm_cardHolder {
@@ -526,4 +526,5 @@ section.login_interface .container.right form input::-webkit-outer-spin-button, 
 
 .currency::before {
   content: "₱ ";
+  font-family: inherit;
 }/*# sourceMappingURL=main.css.map */

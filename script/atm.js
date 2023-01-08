@@ -33,31 +33,38 @@ const display_bankData = async () => {
 
     atm_cardNum_Element.innerText = data.card.num.match(/.{1,3}/g).join('-');
     atm_cardHolder_Element.innerText = data.card.owner;
-    let atm_cardPin_showHide = false;
+    let atm_cardPin_Hidden = false;
     let atm_cardEditPIN_isEdit = false;
 
     atm_cardId_Element.addEventListener('click', () => {
-        console.log(atm_cardPin_showHide)
-            if(atm_cardPin_showHide && !atm_cardEditPIN_isEdit) {
+        if(!atm_cardEditPIN_isEdit) {
+            if(atm_cardPin_Hidden) {
                 atm_cardId_Element.innerText = '****';
-                atm_cardPin_showHide = false;
+                atm_cardPin_Hidden = false;
             }
             else {
                 atm_cardId_Element.innerText = data.card.pin;
-                atm_cardPin_showHide = true;
+                atm_cardPin_Hidden = true;
             }
+        }
     })
-
-    atm_cardEditPIN_Element.addEventListener('click', () => {
-        if(atm_cardEditPIN_isEdit) {
-            atm_cardEditPIN_isEdit = false;
-            atm_cardId_Element.innerHTML = '<input>'
+    atm_cardEditPIN_Element.addEventListener('click', async () => {
+        if(!atm_cardEditPIN_isEdit) {
+            atm_cardId_Element.innerHTML = '<input id=new_cardPinID onchange=updated_userPINFetcher(this.value)>'
+            atm_cardEditPIN_isEdit = true;
+            atm_cardPin_Hidden = false;
+            atm_cardEditPIN_Element.classList.replace('bi-pencil-square', 'bi-check2-square')
         }
         else {
-            atm_cardEditPIN_isEdit = true;
-            atm_cardId_Element.innerHTML = data.card.pin
+            atm_cardId_Element.innerText = data.card.pin;
+            atm_cardEditPIN_isEdit = false;
+            atm_cardPin_Hidden = true;
+            atm_cardEditPIN_Element.classList.replace('bi-check2-square', 'bi-pencil-square')
+
+            await update_userPIN(data.card.owner, data.card.num, data.card.pin);
         }
     })
+    
 
 
     // MODAL
@@ -220,6 +227,28 @@ const display_bankData = async () => {
     })
 }
 
+let newUserCardPIN;
+
+const updated_userPINFetcher = async (e) => {
+    newUserCardPIN = e;
+}
+
+const update_userPIN = async (owner, cardNum, cardPin) => {
+    const res = await fetch(`${api}userAccounts/${loggedInID}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            card: {
+                owner: owner,
+                num: cardNum,
+                pin: !newUserCardPIN ? cardPin : newUserCardPIN
+            }
+        })
+    })
+}
+
 
 if(authenticator()) {
     display_bankData()
@@ -298,13 +327,6 @@ const transaction_transferHandler = async (userID, balance, amount) => {
             await transaction_deposit(e.id, e.balance, amount)
         }
     })
-    // console.log(userID, balance, amount)
-    // await data.forEach(e => {
-    //     if(e.card.num == transferalNum){
-    //         console.log(transferalNum, e.card.num)
-    //         console.log(e.id, e.balance, amount)
-    //     }
-    // })
 
 
 }
@@ -314,12 +336,7 @@ const transaction_transferHandler = async (userID, balance, amount) => {
 
 const transaction_historyHandler = async (currentBalance, userID, transfer) => {
     let currentDate = `
-    ${new Date().getMonth() + 1} -
-    ${new Date().getDate()} -
-    ${new Date().getFullYear()} 
-    (${new Date().getHours() > 12 ? new Date().getHours() - 12 : new Date().getHours() === 00 ? 12 : new Date().getHours()}:
-    ${new Date().getMinutes() < 10 ? "0" + new Date().getMinutes() : new Date().getMinutes()}
-    ${new Date().getHours() >= 12  ? 'PM' : 'AM'})`
+    ${new Date().getMonth() + 1} - ${new Date().getDate()} - ${new Date().getFullYear()} (${new Date().getHours() > 12 ? new Date().getHours() - 12 : new Date().getHours() === 00 ? 12 : new Date().getHours()} : ${new Date().getMinutes() < 10 ? "0" + new Date().getMinutes() : new Date().getMinutes()} ${new Date().getHours() >= 12  ? 'PM' : 'AM'})`
 
 
     const res = await fetch(`${api}history`, {
